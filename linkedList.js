@@ -99,6 +99,16 @@ LinkedList.prototype.deleteDuplicates = function() {
     }
 }
 
+LinkedList.prototype.isPalindrome = function() {
+    var current = this.head;
+    var arr = [];
+    while(current) {
+        arr.push(current.value);
+        current = current.next;
+    }
+    return JSON.stringify(arr) === JSON.stringify(arr.reverse())
+}
+
 var Node = function(value) {
     return {value: value, next:null}
 }
