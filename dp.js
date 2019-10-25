@@ -34,3 +34,9 @@ var fib = function(n) {
 var canFinish = function(numCourses, prerequisites) {
     
 }
+
+//Champagne Tower 
+
+var champagneTower = function(poured, query_row, query_glass) {
+    
+}
