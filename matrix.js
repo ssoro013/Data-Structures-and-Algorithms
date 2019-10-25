@@ -5,5 +5,11 @@
 //adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
 
 var numIslands = function(grid) {
-    
+
 }
+
+//Cut Off Trees for Golf Event
+
+var cutOffTree = function(forest) {
+    
+};
