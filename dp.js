@@ -61,7 +61,12 @@ var maxSubArray = function(nums) {
     return Math.max(...nums);
 };
 
+//Maximum Product Subarray (https://leetcode.com/problems/maximum-product-subarray/)
+var maxProduct = function(nums) {
+    
+}
+
 //Valid Parentheses (https://leetcode.com/problems/valid-parentheses/)
 var isValid = function(s) {
-    
+
 };
