@@ -51,3 +51,17 @@ var champagneTower = function(poured, query_row, query_glass) {
     }
     return arr1[query_row][query_glass] > 1 ? 1 : arr1[query_row][query_glass];
 };
+
+//Maixum Subarray (https://leetcode.com/problems/maximum-subarray/description/)
+var maxSubArray = function(nums) {
+    for (var i = 1; i < nums.length; i++) {
+        nums[i] = Math.max(nums[i], nums[i - 1] + nums[i]);
+    }
+
+    return Math.max(...nums);
+};
+
+//Valid Parentheses (https://leetcode.com/problems/valid-parentheses/)
+var isValid = function(s) {
+    
+};
