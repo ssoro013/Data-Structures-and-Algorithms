@@ -57,14 +57,15 @@ var maxSubArray = function(nums) {
     for (var i = 1; i < nums.length; i++) {
         nums[i] = Math.max(nums[i], nums[i - 1] + nums[i]);
     }
-
+    
     return Math.max(...nums);
 };
 
 //Maximum Product Subarray (https://leetcode.com/problems/maximum-product-subarray/)
 var maxProduct = function(nums) {
-    
-}
+    var negatives = nums.filter(a => a < 0).length;
+
+};
 
 //Valid Parentheses (https://leetcode.com/problems/valid-parentheses/)
 var isValid = function(s) {
