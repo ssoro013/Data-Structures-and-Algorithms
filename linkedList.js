@@ -29,6 +29,7 @@ LinkedList.prototype.getValues = function() {
   return arr;
 };
 
+//Middle of Linked List (https://leetcode.com/problems/middle-of-the-linked-list/)
 LinkedList.prototype.middleNode = function() {
   var arr = [];
   var length = 0;
@@ -120,7 +121,7 @@ LinkedList.prototype.isPalindrome = function() {
 
   var reversed = arr.reverse();
   for (var i = 0; i < arr.length; i++) {
-    if (arr[i] !== reversed[arr.length - i - 1]) {
+    if (arr[i] !== reversed[arr.length - 1 - i ]) {
       return false;
     }
   }
