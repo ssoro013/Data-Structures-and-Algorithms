@@ -65,6 +65,7 @@ BinarySearchTree.prototype.bfs = function() {
 
 };
 
+//Validate Binary Search Tree (https://leetcode.com/problems/validate-binary-search-tree/)
 BinarySearchTree.prototype.isValidBST = function() {
 
 };
@@ -87,7 +88,3 @@ BinarySearchTree.prototype.search = function(target) {
 BinarySearchTree.prototype.getMinimumDifference = function() {
     
 };
-
-
-const node = new Node(3);
-console.log(node);

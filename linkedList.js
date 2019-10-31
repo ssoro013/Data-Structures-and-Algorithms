@@ -21,17 +21,34 @@ LinkedList.prototype.insert = function(value) {
 
 LinkedList.prototype.getValues = function() {
   var arr = [];
-  const traverse = function(node) {
-    if (node.value) {
-      arr.push(node.value);
-      if (node.next) {
-        traverse(node.next);
-      }
-    }
-  };
-  traverse(this.head);
+  var current = this.head;
+  while (current) {
+    arr.push(current.value);
+    current = current.next;
+  }
   return arr;
 };
+
+LinkedList.prototype.middleNode = function() {
+  var arr = [];
+  var length = 0;
+  var current = this.head;
+  while (current) {
+    arr.push(current);
+    current = current.next;
+    length ++;
+  }
+  var middle = Math.ceil((length - 1) / 2);
+  return arr[middle];
+};
+
+var List = new LinkedList();
+List.insert(1);
+List.insert(2);
+List.insert(3);
+List.insert(4);
+List.insert(5);
+console.log(List.middleNode());
 
 LinkedList.prototype.reverse = function() {
   var current = this.head;
@@ -43,19 +60,6 @@ LinkedList.prototype.reverse = function() {
     current = next;
   }
   this.head = previous;
-
-  //     return node;
-  //     var curr = this.head;
-  //     var next = null;
-  //     var prev = null;
-
-//     while(curr) {
-//         next = curr.next;
-//         curr.next = prev;
-//         prev = curr;
-//         curr = next;
-//   }
-//   this.head = prev;
 };
 
 LinkedList.prototype.reverseBetween = function(m, n) {
@@ -135,29 +139,3 @@ LinkedList.prototype.hasCycle = function() {
   }
   return false;
 };
-
-
-
-
-const list = new LinkedList();
-list.insert(1);
-list.insert(1);
-list.insert(2);
-list.insert(2);
-console.log(list.getValues());
-list.deleteDuplicates();
-console.log(list.getValues());
-// list.insert(3)
-// list.insert(3)
-// list.insert(3)
-// list.insert(3)
-console.log(list.getValues());
-list.deleteDuplicates();
-console.log(list.getValues());
-// list.insert(4)
-// list.insert(5)
-// list.deleteNode(2)
-// list.deleteNode(4)
-// list.reverseBetween(1,2)
-
-
