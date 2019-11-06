@@ -34,3 +34,24 @@ var removeElement = function(arr, val) {
 var removeDuplicates2 = function(arr) {
     
 }
+
+//Non-decreasing Array (https://leetcode.com/problems/non-decreasing-array/)
+var checkPossibility = function(nums) {
+    var count = 0;
+    for (var i = 0; i < nums.length - 1; i++) {
+        if (nums[i] > nums[i + 1]) {
+            if (i > 0) {
+                if (nums[i - 1] <= nums[i + 1]) {
+                    nums[i] = nums[i - 1]
+                } else {
+                    nums[i + 1] = nums[i]
+                }
+            }
+        }
+    }
+};
+
+//Trapping Rain Water (https://leetcode.com/problems/trapping-rain-water/)
+var trap = function(arr) {
+    
+}

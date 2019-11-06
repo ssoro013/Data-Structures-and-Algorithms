@@ -6,10 +6,9 @@
 
 var numIslands = function(grid) {
 
-}
+};
 
 //Cut Off Trees for Golf Event
-
 var cutOffTree = function(forest) {
     
 };
