@@ -1,8 +1,6 @@
 //Array
 
-//Remove Duplicates I
-//Given a sorted array nums, remove the duplicates in-place such that each element appear only once and return the new length.
-//Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+//Remove Duplicates I (https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
 var removeDuplicates1 = function(arr) {
     for (var i = 0; i < arr.length - 1; i++) {
@@ -14,10 +12,17 @@ var removeDuplicates1 = function(arr) {
     return arr.length;
 }
 
+//Remove Duplicates II (https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
+var removeDuplicates2 = function(arr) {
+    for (var i = 0; i < arr.length; i++) {
+        var count = arr.filter(element => element = arr[i]).length;
+        if (count > 2) {
+            arr.splice(i , l - 2)
+        }
+    }
+}
+
 //Remove Element
-//Given an array nums and a value val, remove all instances of that value in-place and return the new length.
-//Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
-//The order of elements can be changed. It doesn't matter what you leave beyond the new length.
 var removeElement = function(arr, val) {
     for (var i = 0; i < arr.length; i++) {
         if(arr[i] === val) {
@@ -28,12 +33,6 @@ var removeElement = function(arr, val) {
     return arr.length;
 }
 
-//Remove Duplicates II
-//Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.
-//Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
-var removeDuplicates2 = function(arr) {
-    
-}
 
 //Non-decreasing Array (https://leetcode.com/problems/non-decreasing-array/)
 var checkPossibility = function(nums) {
