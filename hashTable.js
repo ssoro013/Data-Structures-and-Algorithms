@@ -64,3 +64,21 @@ var containsNearbyDuplicate = function(nums, k) {
 var containsNearbyAlmostDuplicate = function(nums, k, t) {
     
 };
+
+
+//First Unique Character (https://leetcode.com/problems/first-unique-character-in-a-string/)
+var firstUniqChar = function(s) {
+    var obj = {};
+    for (var i = 0; i < s.length; i++) {
+        obj[s[i]] ? obj[s[i]] ++ : obj[s[i]] = 1;
+    }
+    
+    for (var element in obj) {
+        if (obj[element] === 1) {
+            return s.indexOf(element);
+        }
+    }
+    return -1;
+};
+//Metrics: runtime of 90ms faster than 70% and memory usage of 35MB less than 65% of online submissions
+
