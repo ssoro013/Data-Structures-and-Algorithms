@@ -49,15 +49,6 @@ class HashTable {
     }
 }
 
-var hash = new HashTable(4);
-hash.insert('last', 'Soro');
-hash.insert('first', 'Soukpafolo');
-hash.insert('middle', 'Siriki');
-console.log(hash.remove('last'));
-console.log(hash.search('last'));
-console.log(hash.search('first'));
-
-
 //Contains Duplicate I (https://leetcode.com/problems/contains-duplicate/)
 var containsDuplicateI = function(nums) {
     return new Set(nums).size !== nums.length;
