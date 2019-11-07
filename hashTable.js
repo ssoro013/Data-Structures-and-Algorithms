@@ -26,7 +26,6 @@ class HashTable {
     constructor(size) {
         this.size = size;
         this.buckets = Array(this.size);
-        // this.buckets.fill(new Map);
         for (var i = 0; i < this.buckets.length; i++) {
             this.buckets[i] = new Map();
         }
