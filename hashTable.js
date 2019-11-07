@@ -38,14 +38,14 @@ class HashTable {
     }
 
     remove(key) {
-        var index = hashFunction(key);
+        var index = hashFunction(key, this.size);
         var removed = this.buckets[index].get(key);
         this.buckets[index].delete(key);
         return removed;
     }
 
     search(key) {
-        var index = hashFunction(key);
+        var index = hashFunction(key, this.size);
         return this.buckets[index].get(key);
     }
 }
@@ -54,7 +54,8 @@ var hash = new HashTable(4);
 hash.insert('last', 'Soro');
 hash.insert('first', 'Soukpafolo');
 hash.insert('middle', 'Siriki');
-console.log(hash);
+console.log(hash.remove('last'));
+
 
 
 //Contains Duplicate I (https://leetcode.com/problems/contains-duplicate/)
