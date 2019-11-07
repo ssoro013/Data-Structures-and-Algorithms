@@ -55,6 +55,7 @@ hash.insert('first', 'Soukpafolo');
 hash.insert('middle', 'Siriki');
 console.log(hash.remove('last'));
 console.log(hash.search('last'));
+console.log(hash.search('first'));
 
 
 //Contains Duplicate I (https://leetcode.com/problems/contains-duplicate/)
