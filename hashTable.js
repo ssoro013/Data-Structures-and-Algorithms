@@ -82,3 +82,17 @@ var firstUniqChar = function(s) {
 };
 //Metrics: runtime of 90ms faster than 70% and memory usage of 35MB less than 65% of online submissions
 
+//Top K Frequent Elements (https://leetcode.com/problems/top-k-frequent-elements/)
+var topKFrequent = function(nums, k) {
+    var obj = {};
+    for (var i = 0; i < nums.length; i++) {
+        obj[nums[i]] ? obj[nums[i]]++ : obj[nums[i]] = 1;
+    }
+
+    var sorted = Object.entries(obj).sort((a, b) => b[1] - a[1]);
+    var arr = [];
+    for (var i = 0; i < k; i++) {
+        arr.push(Number(sorted[i][0]));
+    }
+    return arr;
+}
