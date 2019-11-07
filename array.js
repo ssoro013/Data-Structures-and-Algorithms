@@ -15,23 +15,26 @@ var removeDuplicates1 = function(arr) {
 //Remove Duplicates II (https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/)
 var removeDuplicates2 = function(arr) {
     for (var i = 0; i < arr.length; i++) {
-        var count = arr.filter(element => element = arr[i]).length;
-        if (count > 2) {
-            arr.splice(i , l - 2)
+        if (arr[i] === arr[i + 1] && arr[i + 1] === arr[i + 2]) {
+            arr.splice(i, 1);
+            i--;
         }
     }
-}
+};
+//metrics: runtime faster than 50% and memory usage less than 100% online submissions
 
-//Remove Element
+//Remove Element (https://leetcode.com/problems/remove-element/)
 var removeElement = function(arr, val) {
     for (var i = 0; i < arr.length; i++) {
-        if(arr[i] === val) {
+        if (arr[i] === val) {
             arr.splice(i, 1);
-            i--
+            i--;
         }
     }
     return arr.length;
-}
+};
+//metrics: runtime faster than 70% and memory usage less than 80% online submissions
+
 
 
 //Non-decreasing Array (https://leetcode.com/problems/non-decreasing-array/)
