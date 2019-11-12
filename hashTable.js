@@ -155,6 +155,9 @@ var compress = function(chars) {
             count = 1;
         }
     }
+
+    chars.splice(0, chars.length, ...output.split(''));
+    return chars.length;
 };
 //Metrics: runtime of 68ms faster than 60% and memory usage of 36.9MB less than 100% of online submissions
 
