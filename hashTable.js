@@ -145,3 +145,65 @@ var checkInclusion = function(s1, s2) {
     return false;
 };
 //Metrics: runtime is slow (needs to optimize), memory usage of 43 less than 100% of online submissions
+
+//String Compression (https://leetcode.com/problems/string-compression/)
+var compress = function(chars) {
+    let n = chars.length;
+    let count = 1;
+    for (let i = n - 2; i >= 0; i--) {
+        if (chars[i] === chars[i+1]) {
+            count++;
+        } else if (count > 1) {
+            chars.splice(i+2, count-1, ...count.toString().split(''));           
+            count = 1;
+        }
+    }
+    
+    if (count > 1) {
+        chars.splice(1, count-1, ...count.toString().split(''));           
+    }
+    
+    return chars;
+};
+
+//Find Common Characters (https://leetcode.com/problems/find-common-characters/)
+var commonChars = function(A) {
+    var arr = [];
+    var min = A.reduce((a, b) => a.length <= b.length ? a : b);
+    for (var i = 0; i < min.length; i++) {
+        var char = min[i];
+        var count = Math.min(...A.map(a => a.split(char).length - 1));
+        if (count > 0) {
+            if (!arr.includes(char)) {
+                for (var j = 0; j < count; j++) {
+                    arr.push(char);
+                }
+            }
+        }
+    }
+    return arr;
+};
+//Metrics: refactor to optimize for time and space
+
+// var arr = ['bella', 'label', 'roller'];
+// console.log(commonChars(arr));
+
+var arr = ['cool', 'lock', 'cook']
+console.log(commonChars(arr));
+
+
+//Minimum Window Substring (https://leetcode.com/problems/minimum-window-substring/)
+var minWindow = function(s, t) {
+
+};
+
+var string = 'soro'
+var count1 = string.split('r').length - 1;
+var count2 = string.match(/r/g || []).length;
+console.log(count1, count2);
+
+var arr = ['bella', 'label', 'roller']
+// var outcome = Math.min(...arr.map(a => a.split('e').length - 1))
+var outcome = arr.reduce((a,b) => a.length <= b.length ? a : b)
+console.log(outcome);
+
