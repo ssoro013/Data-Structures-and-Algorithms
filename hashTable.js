@@ -120,16 +120,7 @@ var lengthOfLongestSubstring = function(s) {
 
 //Permutation in String (https://leetcode.com/problems/permutation-in-string/) (using sliding window algorithm)
 var sortString = function(s) {
-    var sorted = s.split('').sort(function(a, b) {
-        if (a > b) {
-            return 1;
-        } else if (a < b) {
-            return -1;
-        } else {
-            return 0;
-        }
-    }).join('');
-    return sorted;
+    return s.split('').sort().join();
 };
 
 var checkInclusion = function(s1, s2) {
@@ -169,7 +160,7 @@ var compress = function(chars) {
 //Find Common Characters (https://leetcode.com/problems/find-common-characters/)
 var commonChars = function(A) {
     var arr = [];
-    var min = A.reduce((a, b) => a.length <= b.length ? a : b);
+    var min = A[0];
     for (var i = 0; i < min.length; i++) {
         var char = min[i];
         var count = Math.min(...A.map(a => a.split(char).length - 1));
@@ -183,27 +174,50 @@ var commonChars = function(A) {
     }
     return arr;
 };
-//Metrics: refactor to optimize for time and space
-
-// var arr = ['bella', 'label', 'roller'];
-// console.log(commonChars(arr));
-
-var arr = ['cool', 'lock', 'cook']
-console.log(commonChars(arr));
-
+//Metrics: refactor to optimize for time and space 
 
 //Minimum Window Substring (https://leetcode.com/problems/minimum-window-substring/)
-var minWindow = function(s, t) {
-
+var sortString = function(s) {
+    return s.split('').sort().join();
 };
 
-var string = 'soro'
-var count1 = string.split('r').length - 1;
-var count2 = string.match(/r/g || []).length;
-console.log(count1, count2);
+var minWindow = function(s, t) {
+    var window = t.length;
+    while (window <= s.length) {
+        for (var i = 0; i < s.length + window + 1; i++) {
+            var current = s.slice(i, i + window);
+            var temp = s.slice(i, i + window);
+            for (var j = 0; j < temp.length; j++) {
+                if (!t.includes(temp[j])) {
+                    temp = temp.replace(temp[j], '');
+                    j --;
+                }
+            }
+            if (sortString(temp) === sortString(t) || sortString(current).includes(sortString(t))) {
+                return current;
+            }
+        }
+        window ++;
+    }
+    return '';
+};
 
-var arr = ['bella', 'label', 'roller']
-// var outcome = Math.min(...arr.map(a => a.split('e').length - 1))
-var outcome = arr.reduce((a,b) => a.length <= b.length ? a : b)
+// var S = 'ADOBECODEBANC';
+// var T = 'ABC';
+// var outcome = minWindow(S, T);
+// console.log(outcome);
+
+// var S = 'bbaa';
+// var T = 'aba';
+// var outcome = minWindow(S, T);
+// console.log(outcome);
+
+
+var S = 'abc';
+S.replace('a','')
+console.log(S)
+var T = 'ac';
+var outcome = minWindow(S, T);
 console.log(outcome);
+
 
