@@ -6,8 +6,8 @@ class Queue {
     }
 
     enqueue(value) {
-        this.storage[lastIndex] = value;
-        this.lastIndex ++
+        this.storage[this.lastIndex] = value;
+        this.lastIndex ++;
     }
 
     dequeue() {
@@ -22,12 +22,3 @@ class Queue {
         return keys.length;
     }
 }
-
-var q = new Queue();
-q.enqueue(1)
-q.enqueue(2)
-q.enqueue(3)
-q.enqueue(4)
-q.enqueue(5)
-q.dequeue();
-console.log(q);
