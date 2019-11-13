@@ -11,10 +11,10 @@ class Queue {
     }
 
     dequeue() {
-        var removed = this.storage[this.firstIndex];
+        var firstElement = this.storage[this.firstIndex];
         delete this.storage[this.firstIndex];
         this.firstIndex ++;
-        return removed;
+        return firstElement;
     }
 
     size() {
