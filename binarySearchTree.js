@@ -88,3 +88,20 @@ BinarySearchTree.prototype.search = function(target) {
 BinarySearchTree.prototype.getMinimumDifference = function() {
     
 };
+
+//Kth Smallest Element in BST(https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
+var kthSmallest = function(root, k) {
+  var arr = [];
+  var add = function (node) {
+    if (!node) {
+      return;
+    } else {
+      arr.push(node.value);
+      add(node.left);
+      add(node.right);
+    }
+  };
+
+  add(root);
+  return arr.sort((a, b) => a - b)[k - 1];
+};

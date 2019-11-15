@@ -21,7 +21,7 @@ class Graph {
             for (var j = 0; j < values.length; j++) {
                 output += values[j] + ' ';
             }
-            console.log(key +'->' + output);
+            console.log(key + '->' + output);
         }
     }
 }
