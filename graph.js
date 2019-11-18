@@ -28,7 +28,7 @@ class Graph {
 var g = new Graph(6);
 var vertices = ['A', 'B', 'C', 'D', 'E', 'F'];
 for (var i = 0; i < vertices.length; i++) {
-    g.addVertex(vertices[i])
+    g.addVertex(vertices[i]);
 }
 
 g.addEdge('A', 'B'); 
@@ -39,7 +39,18 @@ g.addEdge('D', 'E');
 g.addEdge('E', 'F'); 
 g.addEdge('E', 'C'); 
 g.addEdge('C', 'F'); 
-g.printGraph()
+console.log(g);
+g.printGraph();
+
+//DFS: Depth First Search
+var dfs = function(root) {
+}
+
+var search = function(node, visited) {
+    visited[node] = true;
+    console.log(node);
+    var neighbours = this.adjList.get(node);
+}
 
 //Number of Islands
 var numIslands = function(grid) {

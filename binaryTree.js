@@ -11,12 +11,15 @@ var BinaryTree = function(value) {
 var maxDepth = function(root) {
     var max = 0;
 
-}
+};
+//https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/
 
 
 //Minimum Depth of Binary Tree (https://leetcode.com/problems/minimum-depth-of-binary-tree/)
 var minDepth = function(root) {
 };
+
+//https://www.geeksforgeeks.org/find-minimum-depth-of-a-binary-tree/
 
 //Leaf-Similar Trees (https://leetcode.com/problems/leaf-similar-trees/)
 var leafSequence = function (root) {
@@ -40,6 +43,11 @@ var leafSimilar = function(root1, root2) {
     return leafSequence(root1) === leafSequence(root2);
 };
 //Metrics: runtime of 56ms faster than 80% and memory usage of 34mb less than 50% of online submissions
+
+//Path Sum (https://leetcode.com/problems/path-sum/)
+var hasPathSum = function (root, sum) {
+
+}
 
 
 // Add One Row to Tree: (https://leetcode.com/problems/add-one-row-to-tree/)
