@@ -55,7 +55,13 @@ var leafSimilar = function(root1, root2) {
 
 //Path Sum (https://leetcode.com/problems/path-sum/)
 var hasPathSum = function (root, sum) {
-
+    if (!root) {
+        return false;
+    } else if (!root.left && !root.right) {
+        return root.val === sum
+    } else {
+        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val)
+    }
 }
 
 
