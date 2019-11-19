@@ -9,14 +9,23 @@ var BinaryTree = function(value) {
 
 //Maximum Depth of Binary Tree (https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 var maxDepth = function(root) {
-    var max = 0;
-
+    return !root? 0 : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 };
 //https://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/
 
 
 //Minimum Depth of Binary Tree (https://leetcode.com/problems/minimum-depth-of-binary-tree/)
 var minDepth = function(root) {
+    if (!root) {
+        return 0;
+    } if (!root.left && !root.right) {
+        return 1;
+    } if (!root.left) {
+        return minDepth(root.right) + 1;
+    } if (!root.right) {
+        return minDepth(root.left) + 1;
+    }
+    return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
 };
 
 //https://www.geeksforgeeks.org/find-minimum-depth-of-a-binary-tree/
