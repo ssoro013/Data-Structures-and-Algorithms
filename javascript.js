@@ -64,3 +64,72 @@ console.log(0.1 + 0.2 == 0.3);
     setTimeout(function(){console.log(3)}, 0); 
     console.log(4);
 })();
+
+//11. Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.
+
+//12. Write a sum method which will work properly when invoked using either syntax below.
+console.log(sum(2,3));   // Outputs 5
+console.log(sum(2)(3));  // Outputs 5
+
+//13. Consider the following code snippet:
+for (var i = 0; i < 5; i++) {
+    var btn = document.createElement('button');
+    btn.appendChild(document.createTextNode('Button ' + i));
+    btn.addEventListener('click', function(){ console.log(i); });
+    document.body.appendChild(btn);
+}
+//(a) What gets logged to the console when the user clicks on “Button 4” and why?
+//(b) Provide one or more alternate implementations that will work as expected.
+
+//14. Assuming d is an “empty” object in scope, say:
+var d = {};
+//…what is accomplished using the following code?
+
+['zebra', 'horse'].forEach(function(k) {
+	d[k] = undefined;
+});
+
+//15. What will the code below output to the console and why?
+var arr1 = "john".split('');
+var arr2 = arr1.reverse();
+var arr3 = "jones".split('');
+arr2.push(arr3);
+console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+
+//16. What will the code below output to the console and why?
+console.log(1 +  "2" + "2");
+console.log(1 +  +"2" + "2");
+console.log(1 +  -"1" + "2");
+console.log(+"1" +  "1" + "2");
+console.log( "A" - "B" + "2");
+console.log( "A" - "B" + 2);
+
+//17. The following recursive code will cause a stack overflow if the array list is too large. 
+// How can you fix this and still retain the recursive pattern?
+var list = readHugeList();
+
+var nextListItem = function() {
+    var item = list.pop();
+
+    if (item) {
+        // process the list item...
+        nextListItem();
+    }
+};
+
+//18. What is a “closure” in JavaScript? Provide an example.
+
+//19. What will be the output of the following code:
+for (var i = 0; i < 5; i++) {
+	setTimeout(function() { console.log(i); }, i * 1000 );
+}
+// Explain your answer. How could the use of closures help here?
+
+//20. What would the following lines of code output to the console?
+console.log("0 || 1 = "+(0 || 1));
+console.log("1 || 2 = "+(1 || 2));
+console.log("0 && 1 = "+(0 && 1));
+console.log("1 && 2 = "+(1 && 2));
+// Explain your answer.
+
