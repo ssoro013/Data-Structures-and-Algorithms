@@ -133,3 +133,85 @@ console.log("0 && 1 = "+(0 && 1));
 console.log("1 && 2 = "+(1 && 2));
 // Explain your answer.
 
+//21. What will be the output when the following code is executed? Explain.
+console.log(false == '0')
+console.log(false === '0')
+
+//22. What is the output out of the following code? Explain your answer.
+var a={},
+b={key:'b'},
+c={key:'c'};
+
+a[b]=123;
+a[c]=456;
+console.log(a[b]);
+
+//23. What will the following code output to the console:
+console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10));
+
+//24. Consider the code snippet below. What will the console output be and why?
+(function(x) {
+    return (function(y) {
+        console.log(x);
+    })(2)
+})(1);
+
+//25. What will the following code output to the console and why:
+var hero = {
+    _name: 'John Doe',
+    getSecretIdentity: function (){
+        return this._name;
+    }
+};
+
+var stoleSecretIdentity = hero.getSecretIdentity;
+
+console.log(stoleSecretIdentity());
+console.log(hero.getSecretIdentity());
+// What is the issue with this code and how can it be fixed?
+
+//26. Create a function that, given a DOM Element on the page, will visit the element itself and all of its descendents (not just its immediate children). 
+// For each element visited, the function should pass that element to a provided callback function.
+
+// The arguments to the function should be:
+// a DOM element
+// a callback function (that takes a DOM element as its argument)
+
+//27. Testing your this knowledge in JavaScript: What is the output of the following code?
+var length = 10;
+function fn() {
+	console.log(this.length);
+}
+
+var obj = {
+  length: 5,
+  method: function(fn) {
+    fn();
+    arguments[0]();
+  }
+};
+
+obj.method(fn, 1);
+
+//28. Consider the following code. What will the output be, and why?
+(function () {
+    try {
+        throw new Error();
+    } catch (x) {
+        var x = 1, y = 2;
+        console.log(x);
+    }
+    console.log(x);
+    console.log(y);
+})();
+
+//29. What will be the output of this code?
+var x = 21;
+var girl = function () {
+    console.log(x);
+    var x = 20;
+};
+girl ();
+
+//30. How do you clone an object?
+
