@@ -215,3 +215,40 @@ girl ();
 
 //30. How do you clone an object?
 
+//31. What will this code print?
+for (let i = 0; i < 5; i++) {
+    setTimeout(function() { console.log(i); }, i * 1000 );
+}
+
+//32. What do the following lines output, and why?
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+
+//33. How do you add an element at the begining of an array? How do you add one at the end?
+
+//34. Imagine you have this code:
+var a = [1, 2, 3];
+// a) Will this result in a crash?
+a[10] = 99;
+
+// b) What will this output?
+console.log(a[6]);
+
+//35. What is the value of typeof undefined == typeof NULL?
+
+//36. What would following code return?
+console.log(typeof typeof 1);
+
+//37. What will the following code output and why?
+
+var b = 1;
+function outer(){
+   	var b = 2
+    function inner(){
+        b++;
+        var b = 3;
+        console.log(b)
+    }
+    inner();
+}
+outer();
