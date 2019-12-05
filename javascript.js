@@ -252,17 +252,21 @@ var girl = function () {
 girl ();
 
 //30. How do you clone an object?
-//Use Object.assign({}, obj) if there are no nested objects, else use JSON.parse(JSON.stringify(obj))
 
+//Answer: Use Object.assign({}, obj) if there are no nested objects, else use JSON.parse(JSON.stringify(obj))
 
 //31. What will this code print?
 for (let i = 0; i < 5; i++) {
     setTimeout(function() { console.log(i); }, i * 1000 );
 }
 
+//answer: 0, 1, 2, 3, 4
+
 //32. What do the following lines output, and why?
 console.log(1 < 2 < 3);
 console.log(3 > 2 > 1);
+
+//Answer: true and false. a. true < 3 --> 1 < 3 --> true. b.true > 1 --> 1 > 1 --> false
 
 //33. How do you add an element at the begining of an array? How do you add one at the end?
 var arr = [1,2,3]
@@ -278,10 +282,16 @@ a[10] = 99;
 // b) What will this output?
 console.log(a[6]);
 
+//Answers: a.No, 7 empty items will be created. b.undefined
+
 //35. What is the value of typeof undefined == typeof NULL?
+
+//Answer: true
 
 //36. What would following code return?
 console.log(typeof typeof 1);
+
+//Answer: string (typeof "number")
 
 //37. What will the following code output and why?
 
@@ -297,4 +307,7 @@ function outer(){
 }
 outer();
 
-//Solutions: https://www.toptal.com/javascript/interview-questions
+//Answer: 3
+
+// https://www.toptal.com/javascript/interview-questions
+
