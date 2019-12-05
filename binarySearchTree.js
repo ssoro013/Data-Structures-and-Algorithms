@@ -38,7 +38,6 @@ BinarySearchTree.prototype.insert = function(value) {
 };
 
 BinarySearchTree.prototype.contains = function(target) {
-
   const recurse = function(tree) {
     if (tree.value > target) {
       if (tree.left.value === target) {
@@ -57,9 +56,28 @@ BinarySearchTree.prototype.contains = function(target) {
   recurse(this);
 };
 
-BinarySearchTree.prototype.dfs = function() {
-    
+var tree = new BinarySearchTree(5);
+tree.insert(1)
+tree.insert(2)
+tree.insert(3)
+tree.insert(4)
+tree.insert(6)
+tree.insert(7)
+tree.insert(8)
+tree.insert(9)
+tree.insert(10)
+
+var dfs = function (root) {
+  if (!root) {
+    return ;
+  } else {
+    console.log(root.value);
+    dfs(root.left);
+    dfs(root.right);
+  }
 };
+
+dfs(tree);
 
 BinarySearchTree.prototype.bfs = function() {
 
@@ -89,7 +107,7 @@ BinarySearchTree.prototype.getMinimumDifference = function() {
   
 };
 
-//Kth Smallest Element in BST(https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
+//Kth Smallest Element in BST (https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 var kthSmallest = function(root, k) {
   var arr = [];
   var add = function (node) {
@@ -101,7 +119,6 @@ var kthSmallest = function(root, k) {
       add(node.right);
     }
   };
-
   add(root);
   return arr.sort((a, b) => a - b)[k - 1];
 };
