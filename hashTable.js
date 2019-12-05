@@ -220,3 +220,8 @@ var majorityElement1 = function (nums) {
         }
     }
 }
+
+//Majority Element II (https://leetcode.com/problems/majority-element-ii/)
+var majorityElement2 = function (nums) {
+    
+}
