@@ -3,14 +3,16 @@
 //1. What is a potential pitfall with using typeof bar === "object" to determine if bar is an object?
 //How can this pitfall be avoided?
 
+//Answer: Almost everything in JavaScript is either an object or a primitive value. Use the instanceOf operator instead.
 
 //2. What will the code below output to the console and why?
 (function(){
     var a = b = 3;
 })();
-  
 console.log("a defined? " + (typeof a !== 'undefined'));
 console.log("b defined? " + (typeof b !== 'undefined'));
+
+//Answer: a is defined while b is undefined because var statement only declares the first variable which in this case is a
 
 
 //3. What will the code below output to the console and why?
@@ -27,6 +29,13 @@ var myObject = {
     }
 };
 myObject.func();
+
+//Answer: this in all console.log() refers to the object myObject except in the third where this is undefined
+//outer func: this.foo = bar
+//outher func: self.foo = bar
+//inner func: this.foo = undefined
+//inner func: this.foo = bar
+
 
 //4. What is the significance of, and reason for, wrapping the entire content of a JavaScript source file in a function block?
 
@@ -48,14 +57,25 @@ function foo2()
   };
 }
 
+//Answer: foo1 will return object with key-value bar-hello while foo2 will return undefined because a semicolon is inserted
+//right aftr the return statement;
+
 //7. What is NaN? What is its type? How can you reliably test if a value is equal to NaN?
+
+//Answer: NaN is Not a Number. Use Number.isNaN() to test if a value is equal to NaN
+
 
 //8. What will the code below output? Explain your answer.
 console.log(0.1 + 0.2);
-console.log(0.1 + 0.2 == 0.3);
+console.log(0.1 + 0.2 === 0.3);
+
+//Answer: .3 and false 
 
 //9. Discuss possible ways to write a function isInteger(x) that determines if x is an integer.
-
+//Answer:
+var isInteger = function (x) {
+    return x === Math.round(x);
+}
 
 //10. In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?
 (function() {
@@ -65,9 +85,24 @@ console.log(0.1 + 0.2 == 0.3);
     console.log(4);
 })();
 
+//Answer: 1, 4, 3, 2
+
 //11. Write a simple function (less than 160 characters) that returns a boolean indicating whether or not a string is a palindrome.
+//Answer
+var isPalindrome = function(str) {
+    return str === str.split('').reverse().join();
+}
 
 //12. Write a sum method which will work properly when invoked using either syntax below.
+var sum = function(x) {
+    if (arguments.length === 2) {
+        return arguments[0] + arguments[1];
+    } else {
+        return function(y) {
+            return x + y;
+        }
+    }
+};
 console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 
@@ -88,6 +123,9 @@ var d = {};
 ['zebra', 'horse'].forEach(function(k) {
 	d[k] = undefined;
 });
+console.log(d)
+
+//Answer: d: {'zebra': undefined, 'horse': undefined}. Array elements are passed as keys to the object d.
 
 //15. What will the code below output to the console and why?
 var arr1 = "john".split('');
@@ -214,6 +252,8 @@ var girl = function () {
 girl ();
 
 //30. How do you clone an object?
+//Use Object.assign({}, obj) if there are no nested objects, else use JSON.parse(JSON.stringify(obj))
+
 
 //31. What will this code print?
 for (let i = 0; i < 5; i++) {
@@ -225,6 +265,10 @@ console.log(1 < 2 < 3);
 console.log(3 > 2 > 1);
 
 //33. How do you add an element at the begining of an array? How do you add one at the end?
+var arr = [1,2,3]
+arr.unshift(0)
+arr.push(4)
+console.log(arr);
 
 //34. Imagine you have this code:
 var a = [1, 2, 3];
@@ -252,3 +296,5 @@ function outer(){
     inner();
 }
 outer();
+
+//Solutions: https://www.toptal.com/javascript/interview-questions
