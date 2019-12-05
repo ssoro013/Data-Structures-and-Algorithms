@@ -310,4 +310,3 @@ outer();
 //Answer: 3
 
 // https://www.toptal.com/javascript/interview-questions
-

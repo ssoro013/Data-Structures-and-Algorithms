@@ -205,3 +205,18 @@ var minWindow = function(s, t) {
     }
     return '';
 };
+
+//Majority Element I (https://leetcode.com/problems/majority-element/)
+var majorityElement1 = function (nums) {
+    var obj = {};
+    var n = nums.length;
+    for (var i = 0; i < n; i++) {
+        obj[nums[i]] ? obj[nums[i]] ++ : obj[nums[i]] = 1;
+    }
+
+    for (var key in obj) {
+        if (obj[key] > n / 2) {
+            return key
+        }
+    }
+}
