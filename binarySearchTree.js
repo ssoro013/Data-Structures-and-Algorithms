@@ -77,7 +77,11 @@ var dfs = function (root) {
   }
 };
 
-dfs(tree);
+// dfs(tree);
+
+var bfs = function (root) {
+
+}
 
 BinarySearchTree.prototype.bfs = function() {
 
@@ -106,6 +110,27 @@ BinarySearchTree.prototype.search = function(target) {
 BinarySearchTree.prototype.getMinimumDifference = function() {
   
 };
+
+//Minimum Value of BST
+var findMinimum = function (root) {
+  if (!root.left) {
+    return root.value
+  } else {
+    return findMinimum(root.left)
+  }
+}
+
+//Maximum Value of BST
+var findMaximum = function (root) {
+  if (!root.right) {
+    return root.value
+  } else {
+    return findMaximum(root.right);
+  }
+}
+console.log(findMinimum(tree))
+console.log(findMaximum(tree))
+
 
 //Kth Smallest Element in BST (https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 var kthSmallest = function(root, k) {
