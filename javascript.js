@@ -187,6 +187,7 @@ console.log(a[b]);
 //23. What will the following code output to the console:
 console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10));
 
+
 //24. Consider the code snippet below. What will the console output be and why?
 (function(x) {
     return (function(y) {

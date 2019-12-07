@@ -40,10 +40,30 @@ g.addEdge('E', 'F');
 g.addEdge('E', 'C'); 
 g.addEdge('C', 'F'); 
 console.log(g);
-g.printGraph();
+// g.printGraph();
 
 //DFS: Depth First Search
 var dfs = function(root) {
+    var visited = [];
+    function recurse (node) {
+        if (!node) {
+            return ;
+        } else {
+            console.log(node);
+            visited.push(node);
+            for (var i = 0; i < node.adjList.length; i++) {
+                if (!visited.includes(node.adjList[i])) {
+                    recurse(node.adjList[i])
+                }
+            }
+        }
+    }
+    recurse(root)
+}
+
+//BFS: Breadth First Seafch
+var bfs = function(root) {
+
 }
 
 var search = function(node, visited) {
