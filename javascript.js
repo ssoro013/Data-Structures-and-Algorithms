@@ -310,4 +310,10 @@ outer();
 
 //Answer: 3
 
+//38. What will the following code output and why?
+x = {'foo': 'bar'}
+y = {'baz': x}
+z = y['baz']['foo']
+console.log(z)
+
 // https://www.toptal.com/javascript/interview-questions
