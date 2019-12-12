@@ -36,3 +36,43 @@ var merge = function (left, right) {
 var arr = [9, 1, 0, 5, 7, 7];
 var output = mergSort(arr);
 console.log(output)
+
+//Quick Sort
+var quickSort = function (arr, left, right) {
+    var index = partition(arr, left, right);
+    if (left < index - 1) {
+        quickSort(arr, left, index - 1);
+    } if (index < right) {
+        quickSort(arr, index, right);
+    }
+    return arr;
+};
+
+var partition = function (arr, left, right) {
+    var pivot = arr[Math.floor((left + right) / 2)];
+    while (left <= right) {
+        while (arr[left] < pivot) {
+            left ++;
+        }
+        while (arr[right] > pivot) {
+            right --;
+        }
+
+        if (left <= right) {
+            swap(arr, left, right);
+            left ++;
+            right --;
+        }
+    }
+    return left;
+};
+
+var swap = function(arr, i, j) {
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+};
+
+var arr = [9, 1, 0, 5, 7, 7];
+var output = quickSort(arr, 0, arr.length);
+console.log(output)
