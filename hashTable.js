@@ -57,8 +57,17 @@ var containsDuplicateI = function(nums) {
 
 //Contains Duplicate II (https://leetcode.com/problems/contains-duplicate-ii/)
 var containsNearbyDuplicate = function(nums, k) {
-
+    var map = {};
+    for (var i = 0; i < nums.length; i++) {
+        if (map[nums[i]] >= 0 && i - map[nums[i]] <= k) {
+            return true;
+        } else {
+            map[nums[i]] = i;
+        }
+    }
+    return false;
 }
+    
 
 //Contains Duplicate III (https://leetcode.com/problems/contains-duplicate-iii/)
 var containsNearbyAlmostDuplicate = function(nums, k, t) {
