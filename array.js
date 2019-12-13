@@ -100,7 +100,18 @@ var findPeakElement = function (nums) {
         }
     }
 };
-// Find First and Last Position of Element in Sorted Array (https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
+//Peak Index in a Mountain Array (https://leetcode.com/problems/peak-index-in-a-mountain-array/)
+var peakIndexInMountainArray = function (A) {
 
+}
+//Find First and Last Position of Element in Sorted Array (https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+//Rotate Array (https://leetcode.com/problems/rotate-array/)
+var rotate = function (nums, k) {
+    for (var i = 0; i < k; i++) {
+        nums.unshift(nums.pop());
+    }
+    return nums;
+};
 //Binary Search
