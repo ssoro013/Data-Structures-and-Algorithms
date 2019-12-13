@@ -119,7 +119,21 @@ var peakIndexInMountainArray = function (A) {
 //Metrics: runtime of 40ms is faster than 99.73% and memory usage of 34mb is less than 75% of online submissions
 
 //Find First and Last Position of Element in Sorted Array (https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
-
+var searchRange = function (nums, target) {
+    var start = -1;
+    var end = -1;
+    for (var i = 0; i < nums.length; i++) {
+        if (nums[i] === target) {
+            if (start === -1) {
+                start = i;
+                end = i;
+            } else {
+                end = i;
+            }
+        }
+    }
+    return [start, end]
+}
 //Rotate Array (https://leetcode.com/problems/rotate-array/)
 var rotate = function (nums, k) {
     for (var i = 0; i < k; i++) {

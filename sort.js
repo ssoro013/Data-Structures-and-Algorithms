@@ -76,3 +76,32 @@ var swap = function(arr, i, j) {
 var arr = [9, 1, 0, 5, 7, 7];
 var output = quickSort(arr, 0, arr.length);
 console.log(output)
+
+//Binary Search
+var binarySearchIterative = function (arr, target) {
+    var low = 0;
+    var high = arr.length - 1;
+    while (low <= high) {
+        var mid = Math.floor((low + high) / 2);
+        if (arr[mid] === target) {
+            return mid;
+        } else if (arr[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return -1;
+};
+
+var binarySearchRecursice = function(arr, target, low, high) {
+    var mid = Math.floor((low + high) / 2);
+    if (arr[mid] === target) {
+        return mid;
+    } else if (arr[mid] < target) {
+        return binarySearchRecursice(arr, target, mid + 1, high);
+    } else if (arr[mid] > target) {
+        return binarySearchRecursice(arr, target, low, mid - 1)
+    }
+    return -1;
+}
