@@ -103,8 +103,21 @@ var findPeakElement = function (nums) {
 
 //Peak Index in a Mountain Array (https://leetcode.com/problems/peak-index-in-a-mountain-array/)
 var peakIndexInMountainArray = function (A) {
-
+    var low = 0;
+    var high = A.length - 1;
+    while (low <= high) {
+        var mid = Math.floor((low + high) / 2);
+        if (A[mid]> A[mid - 1] && A[mid] > A[mid + 1]) {
+            return mid;
+        } else if (A[mid] > A[mid - 1] && A[mid] < A[mid +1]) {
+            low = mid;
+        } else {
+            high = mid;
+        }
+    }
 }
+//Metrics: runtime of 40ms is faster than 99.73% and memory usage of 34mb is less than 75% of online submissions
+
 //Find First and Last Position of Element in Sorted Array (https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 //Rotate Array (https://leetcode.com/problems/rotate-array/)
