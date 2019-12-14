@@ -115,24 +115,22 @@ var topKFrequent = function(nums, k) {
 
 //Longest Substring Without Repeating Characters (https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 var lengthOfLongestSubstring = function(s) {
-    var max = 1;
-    for (var i = 0; i < s.length - 1; i++) {
-        var char = s[i];
-        var previous = s.slice(0, i + 1);
-        for (var j = i + 1; j < s.length; j++) {
-            if (!previous.includes(s[j])) {
-                char += s[j];
-            } else {
-                break;
+    var max = 0;
+    var previous = [];
+    for (var i = 0; i < s.length; i++) {
+        if (!previous.includes(s[i])) {
+            previous.push(s[i]);
+            if (max < previous.length) {
+                max = previous.length
             }
-        }
-        if (max < char.length) {
-            max = char.length;
+        } else {
+            previous = previous.slice(previous.indexOf(s[i]) + 1);
+            previous.push(s[i]);
         }
     }
-
     return max;
 };
+//Metrics: runtime of 76ms is faster than 96% and memory usage of 40mb is lower than 50% of online submissions
 
 //Permutation in String (https://leetcode.com/problems/permutation-in-string/) (using sliding window algorithm)
 var sortString = function(s) {
