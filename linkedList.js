@@ -145,3 +145,31 @@ LinkedList.prototype.hasCycle = function() {
 var addTwoNumbers = function () {
   
 }
+
+//Rotate List (https://leetcode.com/problems/rotate-list/)
+
+//Remove Linked List Elements (https://leetcode.com/problems/remove-linked-list-elements/)
+var removeElements = function (head, val) {
+  var head = head;
+  while (head && head.val === val) {
+    head = head.next;
+  }
+
+  if (!head) {
+    return null;
+  }
+
+  var current = head;
+  var previous = head;
+  while (current) {
+    if (current.val !== val) {
+      previous = current;
+      current = current.next
+    } else {
+      previous.next = current.next;
+      current = current.next;
+    }
+  }
+  return head
+}
+//Metrics: runtime of 68ms faster than 90% and memory usage of 37mb less than 50% of online submissions
