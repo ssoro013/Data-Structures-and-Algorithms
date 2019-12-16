@@ -31,3 +31,31 @@ var myAtoi = function (str) {
     }
 };
 //Metrics: runtinme of 68ms faster than 95% and memory usage of 36 less than 50% of online submissions
+
+//Valid Parentheses (https://leetcode.com/problems/valid-parentheses/)
+var isValid = function (s) {
+    if (s.length === 0) {
+        return true;
+    }
+
+    if (s.length === 1) {
+        return false;
+    }
+
+    var map = {"(": ")", "{": "}", "[": "]"}
+    var stack = [];
+    for (var i = 0; i < s.length; i++) {
+        if (map.hasOwnProperty(s[i])) {
+            stack.push(s[i])
+        } else {
+            if (map[stack[stack.length - 1]] === s[i]) {
+                stack.pop();
+            } else {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+}
+
+//Metrics: runtime of 52ms faster than 90% and memory usage of 34mb less than 70% of online submissions
