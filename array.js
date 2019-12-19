@@ -120,19 +120,22 @@ var peakIndexInMountainArray = function (A) {
 
 //Find First and Last Position of Element in Sorted Array (https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 var searchRange = function (nums, target) {
-    var start = -1;
-    var end = -1;
-    for (var i = 0; i < nums.length; i++) {
-        if (nums[i] === target) {
-            if (start === -1) {
-                start = i;
-                end = i;
-            } else {
-                end = i;
-            }
+    var low = 0;
+    var high = nums.length - 1;
+    var center ;
+    while (low <= high) {
+        var mid = Math.floor((low + high) / 2);
+        if (nums[mid] === target) {
+            center = mid;
+            break;
+        } else if (nums[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
         }
     }
-    return [start, end]
+
+    
 }
 //Rotate Array (https://leetcode.com/problems/rotate-array/)
 var rotate = function (nums, k) {
