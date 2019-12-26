@@ -10,3 +10,27 @@ var mySqrt = function(x) {
         i++;
     }
 };
+
+//Count Primes
+var countPrimes = function(n) {
+    var count = 0;
+    for (var i = 0; i < n; i++) {
+        if (isPrime(i)) {
+            count ++;
+        }
+    }
+
+    return count;
+}
+
+var isPrime = function(n) {
+    if (n < 2) {
+        return false;
+    }
+    for (var i = 0; i <= Math.sqrt(n); i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
