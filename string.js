@@ -59,3 +59,34 @@ var isValid = function (s) {
 }
 
 //Metrics: runtime of 52ms faster than 90% and memory usage of 34mb less than 70% of online submissions
+
+//Longest Valid Parentheses (https://leetcode.com/problems/longest-valid-parentheses/)
+var isValid = function(s) {
+    var map = {"(": ")"};
+    var stack = [];
+    for (var i = 0; i < s.length; i++) {
+        if (map.hasOwnProperty(s[i])) {
+            stack.push(s[i]);
+        } else {
+            if (map[stack[stack.length - 1]] === s[i]) {
+                stack.pop();
+            } else {
+                return false;
+            }
+        }
+    }  
+    return stack.length === 0;
+};
+
+var longestValidParentheses = function(s) {
+    var window = s.length;
+    while (window >= 2) {
+        for (var i = 0; i < s.length - window + 1; i++) {
+            var current = s.slice(i, window);
+            if (isValid(current)) {
+                return window;
+            }
+        }
+        window --;
+    }
+};
