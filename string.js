@@ -82,11 +82,17 @@ var longestValidParentheses = function(s) {
     var window = s.length;
     while (window >= 2) {
         for (var i = 0; i < s.length - window + 1; i++) {
-            var current = s.slice(i, window);
+            var current = s.slice(i, i + window);
             if (isValid(current)) {
                 return window;
             }
         }
         window --;
     }
+    return 0;
 };
+
+//Minimum Windo Substring (https://leetcode.com/problems/minimum-window-substring/)
+var minWindow = function(s, t) {
+
+}
