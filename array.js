@@ -156,3 +156,19 @@ var shuffle = function(nums) {
     }
     return nums;
 }
+//Metrics: runtime of 216ms is faster than 97% and memory usage of 58mb is less than 67% of online submissions
+
+//Partition Array for Maximum Sum (https://leetcode.com/problems/partition-array-for-maximum-sum/)
+var maxSumAfterPartitioning = function (A, K) {
+    for (var i = 0; i < A.length - K + 1; i += K) {
+        var max = Math.max(...A.slice(i, i + K));
+        for (var j = i; j < i + K; j++) {
+            A[j] = max;
+        }
+    }
+    return A;
+}
+
+//Array of Doubled Pairs (https://leetcode.com/problems/array-of-doubled-pairs/);
+
+//H-Index (https://leetcode.com/problems/h-index/);
