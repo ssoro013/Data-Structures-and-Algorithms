@@ -73,3 +73,6 @@ var isValid = function(s) {
 };
 
 //LRU Cache (https://leetcode.com/problems/lru-cache/)
+
+
+//DP Patterns (https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
