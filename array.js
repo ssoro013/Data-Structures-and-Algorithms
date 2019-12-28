@@ -145,3 +145,14 @@ var rotate = function (nums, k) {
     return nums;
 };
 //Binary Search
+
+//Shuffle an Array (https://leetcode.com/problems/shuffle-an-array/)
+var shuffle = function(nums) {
+    for (var i = 0; i < nums.length; i++) {
+        var j = Math.floor(Math.random() * nums.length);
+        var temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = nums[i];
+    }
+    return nums;
+}
