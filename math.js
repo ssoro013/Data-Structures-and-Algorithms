@@ -11,7 +11,21 @@ var mySqrt = function(x) {
     }
 };
 
-//Count Primes
+
+//Checking for primality
+var isPrime = function (n) {
+    if (n < 2) {
+        return false;
+    }
+    for (var i = 2; i < n; i++) {
+        if (n % i === 0) {
+            return false;
+        }
+    }
+    return true;
+};
+
+//Count Primes (https://leetcode.com/problems/count-primes/)
 var countPrimes = function(n) {
     var count = 0;
     for (var i = 0; i < n; i++) {
@@ -19,18 +33,23 @@ var countPrimes = function(n) {
             count ++;
         }
     }
-
     return count;
-}
+};
 
-var isPrime = function(n) {
-    if (n < 2) {
-        return false;
-    }
-    for (var i = 0; i <= Math.sqrt(n); i++) {
-        if (n % i === 0) {
-            return false;
+//The Sieve of Eratosthenes
+var sieveOfEratosthenes = function(n) {
+    var arr = new Array(n).fill(true);
+    for (var i = 0; i < Math.sqrt(n); i++) {
+        if (i < 2) {
+            arr[i] = false;
+        }
+
+        if (arr[i]) {
+            for (var j = i * i; j < n; j += i) {
+                arr[j] = false
+            }
         }
     }
-    return true;
+    
+    return arr.filter(i => i === true).length;
 }
