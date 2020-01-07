@@ -37,20 +37,16 @@ var isValid = function (s) {
     if (s.length === 0) {
         return true;
     }
-
     if (s.length === 1) {
         return false;
     }
-
     var map = {"(": ")", "{": "}", "[": "]"}
     var stack = [];
     for (var i = 0; i < s.length; i++) {
         if (map.hasOwnProperty(s[i])) {
             stack.push(s[i])
         } else {
-            if (map[stack[stack.length - 1]] === s[i]) {
-                stack.pop();
-            } else {
+            if (map[stack.pop()] !== s[i]) {
                 return false;
             }
         }
@@ -92,7 +88,20 @@ var longestValidParentheses = function(s) {
     return 0;
 };
 
-//Minimum Windo Substring (https://leetcode.com/problems/minimum-window-substring/)
+//Minimum Window Substring (https://leetcode.com/problems/minimum-window-substring/)
 var minWindow = function(s, t) {
+    var window = t.length;
+    var chars = t.split("");
+    while (window <= s.length) {
+        for (var i = 0; i < s.length - window +1; i++) {
+            var current = s.slice(i, i + window).splilt("");
+            if (chars.every(char => chars.filter(i => i === char).length <= current.filter(i => i === char).length)) {
+                return current.join("");
+            }
+        }
+        window ++;
+    }
+    return "";
+};
 
-}
+//Note: refator to solve in O(n)
