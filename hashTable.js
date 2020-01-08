@@ -194,32 +194,6 @@ var commonChars = function(A) {
 };
 //Metrics: refactor to optimize for time and space 
 
-//Minimum Window Substring (https://leetcode.com/problems/minimum-window-substring/)
-var sortString = function(s) {
-    return s.split('').sort().join();
-};
-
-var minWindow = function(s, t) {
-    var window = t.length;
-    while (window <= s.length) {
-        for (var i = 0; i < s.length + window + 1; i++) {
-            var current = s.slice(i, i + window);
-            var temp = s.slice(i, i + window);
-            for (var j = 0; j < temp.length; j++) {
-                if (!t.includes(temp[j])) {
-                    temp = temp.replace(temp[j], '');
-                    j --;
-                }
-            }
-            if (sortString(temp) === sortString(t) || sortString(current).includes(sortString(t))) {
-                return current;
-            }
-        }
-        window ++;
-    }
-    return '';
-};
-
 //Majority Element I (https://leetcode.com/problems/majority-element/)
 var majorityElement1 = function (nums) {
     var obj = {};
