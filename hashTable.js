@@ -213,3 +213,16 @@ var majorityElement1 = function (nums) {
 var majorityElement2 = function (nums) {
     
 }
+
+//Two Sum (https://leetcode.com/problems/two-sum/)
+var twoSum = function (nums, target) {
+    var map = {};
+    for (var i = 0; i < nums.length; i++) {
+        if (target - nums[i] in map) {
+            return [map[target - nums[i]], i];
+        }
+
+        map[nums[i]] = i;
+    }
+}
+//Metrics: runtime of 52ms is faster than 95% and memory usage of 34.5mb is less than 85% of online submissions
