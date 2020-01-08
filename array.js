@@ -118,25 +118,69 @@ var peakIndexInMountainArray = function (A) {
 }
 //Metrics: runtime of 40ms is faster than 99.73% and memory usage of 34mb is less than 75% of online submissions
 
-//Find First and Last Position of Element in Sorted Array (https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
-var searchRange = function (nums, target) {
+//Binary Search
+var binarySearch = function (array, target) {
     var low = 0;
-    var high = nums.length - 1;
-    var center ;
+    var high = array.length - 1;
     while (low <= high) {
         var mid = Math.floor((low + high) / 2);
-        if (nums[mid] === target) {
-            center = mid;
-            break;
-        } else if (nums[mid] < target) {
+        if (array[mid] === target) {
+            return true;
+        } else if (array[mid] < target) {
             low = mid + 1;
         } else {
             high = mid - 1;
         }
     }
 
-    
+    return false;
 }
+
+//Find First and Last Position of Element in Sorted Array (https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+//Solution I: O(n)
+var searchRange = function (nums, target) {
+    var arr = [-1, -1];
+    for (var i = 0; i < nums.length; i++) {
+        if (nums[i] === target) {
+            if (arr[0] === -1) {
+                arr[0] = i;
+                arr[1] = i;
+            } else {
+                arr[1] = i;
+            }
+        }
+    }
+    return arr;
+}
+
+//Solution II: O(log n)
+var searchRange = function (nums, target) {
+    var low = 0;
+    var high = nums.length - 1;
+    var index = -1;
+    while (low <= high) {
+        var mid = Math.floor((low + high) / 2);
+        if (nums[mid] === target) {
+            index = mid;
+            break ;
+        } else if (nums[mid] < target){
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    var start = index;
+    var end = index;
+    while (nums[start - 1] === target) {
+        start --;
+    }
+
+    while (nums[end + 1] === target) {
+        end ++;
+    }
+    return [start, end];
+}
+
 //Rotate Array (https://leetcode.com/problems/rotate-array/)
 var rotate = function (nums, k) {
     for (var i = 0; i < k; i++) {
@@ -144,7 +188,6 @@ var rotate = function (nums, k) {
     }
     return nums;
 };
-//Binary Search
 
 //Shuffle an Array (https://leetcode.com/problems/shuffle-an-array/)
 var shuffle = function(nums) {
