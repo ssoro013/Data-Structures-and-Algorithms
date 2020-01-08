@@ -154,3 +154,8 @@ var uniquePaths = function (m, n) {
     return grid[m - 1][n - 1];
 }
 //Metrics: runtime of 52ms is faster than 85% and memory usage of 34mb less than 60% of online submissions
+
+//Unique Paths II (https://leetcode.com/problems/unique-paths-ii/)
+var uniquePathsWithObstacles = function(obstacleGrid) {
+    
+};
