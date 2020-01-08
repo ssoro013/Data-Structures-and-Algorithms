@@ -82,8 +82,6 @@ var cutOffTree = function(forest) {
     
 };
 
-//Mininum Path Sum (https://leetcode.com/problems/minimum-path-sum/)
-
 //Search a 2D Matrix (https://leetcode.com/problems/search-a-2d-matrix/)
 var searchMatrix = function (matrix, target) {
     if (matrix.length === 0 || matrix[0].length === 0) {
@@ -105,3 +103,35 @@ var searchMatrix = function (matrix, target) {
 //Metrics: runtime of 48ms is faster than 95% and memory usage of 34mb is less than 100% of online submissions
 
 //Search a 2D Matrix II (https://leetcode.com/problems/search-a-2d-matrix-ii/)
+
+//Mininum Path Sum (https://leetcode.com/problems/minimum-path-sum/)
+var minPathSum = function (grid) {
+    var m = grid.length - 1;
+    var n = grid[0].length - 1;
+    for (var i = 0; i <= m; i++) {
+        for (var j = 0; j <= n; j++) {
+            if (i !== 0 && j !== 0) {
+                grid[i][j] += Math.min(grid[i][j - 1], grid[i - 1][j]);
+                continue ;
+            }
+
+            if (i !== 0) {
+                grid[i][j] += grid[i - 1][j];
+                continue ;
+            }
+            
+            if (j !== 0) {
+                grid[i][j] += grid[i][j - 1];
+                continue ;
+            }
+        }
+    }
+    return grid[m][n];
+}
+
+//Metrics: runtime of 44ms is faster than 100% and memory usage of 35mb is less than 100% of online submissions
+
+//Maximum Path Sum
+var maxPathSum = function (grid) {
+
+}
