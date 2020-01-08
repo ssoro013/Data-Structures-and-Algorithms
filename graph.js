@@ -85,5 +85,23 @@ var cutOffTree = function(forest) {
 //Mininum Path Sum (https://leetcode.com/problems/minimum-path-sum/)
 
 //Search a 2D Matrix (https://leetcode.com/problems/search-a-2d-matrix/)
+var searchMatrix = function (matrix, target) {
+    if (matrix.length === 0 || matrix[0].length === 0) {
+        return false;
+    }
+
+    var m = matrix.length - 1;
+    var n = matrix[0].length - 1;
+    if (target < matrix[0][0] || target > matrix[m][n]) {
+        return false;
+    }
+
+    for (var i = 0; i < m + 1; i++) {
+        if (target <= matrix[i][n]) {
+            return matrix[i].indexOf(target) !== -1;
+        }
+    }
+}
+//Metrics: runtime of 48ms is faster than 95% and memory usage of 34mb is less than 100% of online submissions
 
 //Search a 2D Matrix II (https://leetcode.com/problems/search-a-2d-matrix-ii/)
