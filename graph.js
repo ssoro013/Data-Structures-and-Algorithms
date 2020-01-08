@@ -135,3 +135,22 @@ var minPathSum = function (grid) {
 var maxPathSum = function (grid) {
 
 }
+
+//Unique Paths (https://leetcode.com/problems/unique-paths/)
+var uniquePaths = function (m, n) {
+    var grid = new Array(m).fill(new Array(n));
+    for (var i = 0; i < m; i++) {
+        for (var j = 0; j < n; j++) {
+            if (i !== 0 && j !== 0) {
+                grid[i][j] = grid[i - 1][j] + grid[i][j - 1];
+                continue ;
+            }
+            if (i === 0 || j === 0) {
+                grid[i][j] = 1;
+                continue ;
+            }
+        }
+    }
+    return grid[m - 1][n - 1];
+}
+//Metrics: runtime of 52ms is faster than 85% and memory usage of 34mb less than 60% of online submissions
