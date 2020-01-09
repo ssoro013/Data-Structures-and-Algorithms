@@ -11,7 +11,6 @@ var mySqrt = function(x) {
     }
 };
 
-
 //Checking for primality
 var isPrime = function (n) {
     if (n < 2) {
@@ -50,6 +49,10 @@ var sieveOfEratosthenes = function(n) {
             }
         }
     }
-    
     return arr.filter(i => i === true).length;
+}
+
+//Valid Number (https://leetcode.com/problems/valid-number/)
+var isNumber = function(s) {
+    return !isNaN(s) && !!s.trim();
 }
