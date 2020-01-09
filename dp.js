@@ -56,11 +56,55 @@ var maxSubArray = function(nums) {
 
 //Maximum Product Subarray (https://leetcode.com/problems/maximum-product-subarray/)
 var maxProduct = function(nums) {
-    var negatives = nums.filter(a => a < 0).length;
 
 };
 
 //LRU Cache (https://leetcode.com/problems/lru-cache/)
+var LRUCache = function(capacity) {
+    this.cache = new Map();
+    this.size = capacity;
+}
+
+LRUCache.prototype.get = function (key) {
+    //if the cache does not have the key, return -1;
+    if (!this.cache.has(key)) {
+        return -1;
+    }
+    //store the value, remove the key, reset key with stored value and return value
+    var value = this.cache.get(key);
+    this.cache.delete(key);
+    this.cache.set(key, value);
+    return value;
+}
+
+LRUCache.prototype.put = function(key, value) {
+    //if the cache already has the value, delete
+    if (this.cache.has(key)) {
+        this.cache.delete(key);
+    }
+    
+    //insert value into cache
+    this.cache.set(key, value);
+
+    //if the cache capaicty is greater than allowed, remove the first element in cache
+        //first element is the least recently used by definition
+    if (this.cache.size > this.size){
+        var keys = this.cache.keys();
+        var first = keys.next().value;
+        this.cache.delete(first)
+    }
+}
+
+//Metrics: runtime of 184ms faster than 90% and memory usage of 58.5mb is less than 50% of online submissions;
+
 
 
 //DP Patterns (https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
+
+var map = new Map();
+map.set("first", "Soukpafolo")
+map.set("last", "Soro")
+map.set("middle", "Siriki");
+var keys = map.keys();
+var first = Array.from(keys)[0]
+console.log(first)
