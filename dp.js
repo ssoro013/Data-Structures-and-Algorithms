@@ -97,14 +97,16 @@ LRUCache.prototype.put = function(key, value) {
 
 //Metrics: runtime of 184ms faster than 90% and memory usage of 58.5mb is less than 50% of online submissions;
 
+//LFU Cache (https://leetcode.com/problems/lfu-cache/)
+var LFUCache = function(capacity) {
 
+}
 
+LFUCache.prototype.get = function(key) {
+
+}
+
+LFUCache.prototype.put = function(key, value) {
+    
+}
 //DP Patterns (https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
-
-var map = new Map();
-map.set("first", "Soukpafolo")
-map.set("last", "Soro")
-map.set("middle", "Siriki");
-var keys = map.keys();
-var first = Array.from(keys)[0]
-console.log(first)
