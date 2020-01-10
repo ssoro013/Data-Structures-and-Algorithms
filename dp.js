@@ -109,4 +109,11 @@ LFUCache.prototype.get = function(key) {
 LFUCache.prototype.put = function(key, value) {
     
 }
+
+//Three Sum (https://leetcode.com/problems/3sum/)
+
+//Combination Sum (https://leetcode.com/problems/combination-sum/)
+
+//Word Ladder (https://leetcode.com/problems/word-ladder/)
+
 //DP Patterns (https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)

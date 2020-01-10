@@ -57,3 +57,7 @@ var isNumber = function(s) {
     return !isNaN(s) && !!s.trim();
 }
 //Metrics: runtime of 76ms is faster than 95% and memory usage of 36.2mb is less than 100% of online submissions
+
+//Power (https://leetcode.com/problems/powx-n/)
+
+

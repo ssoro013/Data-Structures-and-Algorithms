@@ -215,3 +215,5 @@ var maxSumAfterPartitioning = function (A, K) {
 //Array of Doubled Pairs (https://leetcode.com/problems/array-of-doubled-pairs/);
 
 //H-Index (https://leetcode.com/problems/h-index/);
+
+// First Bad Version (https://leetcode.com/problems/first-bad-version/)
