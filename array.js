@@ -216,4 +216,22 @@ var maxSumAfterPartitioning = function (A, K) {
 
 //H-Index (https://leetcode.com/problems/h-index/);
 
-// First Bad Version (https://leetcode.com/problems/first-bad-version/)
+//First Bad Version (https://leetcode.com/problems/first-bad-version/)
+var solution = function(isBadVersion) {
+    return function(n) {
+        var low = 1;
+        var high = n;
+        var bad = -1;
+        while (low <= high) {
+            var mid = Math.floor((low + high) /2);
+            if (isBadVersion(mid)) {
+                bad = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return bad;
+    };
+};
+//Metrics: runtime of 44ms is faster than 95% 
