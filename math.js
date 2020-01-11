@@ -59,5 +59,23 @@ var isNumber = function(s) {
 //Metrics: runtime of 76ms is faster than 95% and memory usage of 36.2mb is less than 100% of online submissions
 
 //Power (https://leetcode.com/problems/powx-n/)
+var myPow = function(x, n) {
+    var output;
+    var power = Math.abs(n);
+    if (n === 0) {
+        return 1;
+    }
 
+    if (n === 1) {
+        return x;
+    }
 
+    if (power % 2 === 0) {
+        output = myPow(x**2, power/2)
+    } else {
+        output = myPow(x**2, (power - 1)/2) * x;
+    }
+
+    return n > 0 ? output : 1/output;
+};
+//Metrics: runtime of 48ms is faster than 98% and memory usage of 22.8mb is less than 88% of online submissions
