@@ -158,4 +158,29 @@ var threeSum = function(nums) {
 
 //Word Ladder (https://leetcode.com/problems/word-ladder/)
 
+//Ugly Number (https://leetcode.com/problems/ugly-number/)
+var isUgly = function(num) {
+    if (num <= 0) {
+        return false;
+    }
+
+    if (num <= 5) {
+        return true;
+    }
+
+    while (num % 2 === 0) {
+        num = num/2;
+    }
+    while (num % 3 === 0) {
+        num = num/3;
+    }
+    while (num % 5 === 0) {
+        num = num/5
+    }
+    return num === 1;
+}
+//Metrics: runtime of 68ms is faster than 85% and memory usage of 35.4 is less than 100% of online submissions
+
+//Ugly Number II (https://leetcode.com/problems/ugly-number-ii/)
+
 //DP Patterns (https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
