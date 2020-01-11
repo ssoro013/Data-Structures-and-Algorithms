@@ -111,6 +111,48 @@ LFUCache.prototype.put = function(key, value) {
 }
 
 //Three Sum (https://leetcode.com/problems/3sum/)
+var threeSum = function(nums) {
+    nums.sort((a,b) => a - b);
+    var output = [];
+    if (nums.length < 3 || nums[0] > 0) {
+        return output;
+    }
+
+    for (var i = 0; i < nums.length - 2; i++) {
+        if (nums[i] > 0) {
+            return output;
+        }
+
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue;
+        }
+
+        var left = i + 1;
+        var right = nums.length - 1;
+        while (left < right) {
+            var sum = nums[i] + nums[left] + nums[right];
+            if (sum === 0) {
+                output.push([nums[i], nums[left], nums[right]]);
+                while (nums[left] === nums[left + 1]) {
+                    left ++;
+                }
+
+                while (nums[right] === nums[right - 1]) {
+                    right --;
+                }
+
+                left ++;
+                right --;
+            } else if (sum < 0) {
+                left ++;
+            } else {
+                right --;
+            }
+        }
+    }
+    return output;
+}
+//Metrics: runtime of 152ms is faster than 90% and memory usage of 46.7mb is less than 80% of online submissions
 
 //Combination Sum (https://leetcode.com/problems/combination-sum/)
 
