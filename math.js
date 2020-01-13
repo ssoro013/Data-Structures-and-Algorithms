@@ -79,3 +79,5 @@ var myPow = function(x, n) {
     return n > 0 ? output : 1/output;
 };
 //Metrics: runtime of 48ms is faster than 98% and memory usage of 22.8mb is less than 88% of online submissions
+
+//Super Pow (https://leetcode.com/problems/super-pow/)

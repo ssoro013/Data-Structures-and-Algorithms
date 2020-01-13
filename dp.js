@@ -182,5 +182,8 @@ var isUgly = function(num) {
 //Metrics: runtime of 68ms is faster than 85% and memory usage of 35.4 is less than 100% of online submissions
 
 //Ugly Number II (https://leetcode.com/problems/ugly-number-ii/)
+var nthUglyNumber = function (n) {
+    
+}
 
 //DP Patterns (https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
