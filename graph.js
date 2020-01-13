@@ -73,9 +73,9 @@ var search = function(node, visited) {
 }
 
 //Number of Islands
-var numIslands = function(grid) {
 
-};
+//Max Area of Island (https://leetcode.com/problems/max-area-of-island/)
+
 
 //Cut Off Trees for Golf Event
 var cutOffTree = function(forest) {
