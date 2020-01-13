@@ -183,7 +183,28 @@ var isUgly = function(num) {
 
 //Ugly Number II (https://leetcode.com/problems/ugly-number-ii/)
 var nthUglyNumber = function (n) {
-    
-}
+    if (n <= 5) {
+        return n;
+    }
+    var stack = new Array(n);
+    stack[0] = 1;
+    var i2 = 0;
+    var i3 = 0;
+    var i5 = 0;
+    for (var i = 1; i < n; i++) {
+        stack[i] = Math.min(stack[i2] * 2, stack[i3] * 3, stack[i5] * 5);
+        if (stack[i] === stack[i2] * 2) {
+            i2++;
+        }
+        if (stack[i] === stack[i3] * 3) {
+            i3++;
+        }
+        if (stack[i] === stack[i5] * 5) {
+            i5++;
+        }
+    }
+    return stack[n - 1];
+};
+//Metrics: runtime of 64ms is faster than 90% and runtime of 36.3mb is less than 100% of online submissions
 
 //DP Patterns (https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
