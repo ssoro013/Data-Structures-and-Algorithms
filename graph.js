@@ -73,6 +73,30 @@ var search = function(node, visited) {
 }
 
 //Number of Islands (https://leetcode.com/problems/number-of-islands/)
+var numIslands = function(grid) {
+    var count = 0;
+    for (var i = 0; i < grid.length; i++) {
+        for (var j = 0; j < grid[0].length; j++) {
+            if (grid[i][j] === '1') {
+                count += markIsland(i, j)
+            }
+        }
+    }
+    function markIsland(x, y) {
+        if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length || grid[x][y] === '0') {
+            return 0;
+        }
+        grid[x][y] = '0';
+        markIsland(x - 1, y);
+        markIsland(x + 1, y);
+        markIsland(x, y - 1);
+        markIsland(x, y + 1);
+        return 1;
+    }
+
+    return count;
+};
+//Metrics: runtime of 60ms is faster than 90% and memory usage of 37.4 is less than 80% of online submissions
 
 //Max Area of Island (https://leetcode.com/problems/max-area-of-island/)
 
@@ -131,11 +155,6 @@ var minPathSum = function (grid) {
 }
 
 //Metrics: runtime of 44ms is faster than 100% and memory usage of 35mb is less than 100% of online submissions
-
-//Maximum Path Sum
-var maxPathSum = function (grid) {
-
-}
 
 //Unique Paths (https://leetcode.com/problems/unique-paths/)
 var uniquePaths = function (m, n) {
