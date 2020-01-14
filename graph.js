@@ -99,6 +99,29 @@ var numIslands = function(grid) {
 //Metrics: runtime of 60ms is faster than 90% and memory usage of 37.4 is less than 80% of online submissions
 
 //Max Area of Island (https://leetcode.com/problems/max-area-of-island/)
+var maxAreaOfIsland = function(grid) {
+    var max = 0;
+    for (var i = 0; i < grid.length; i++) {
+        for (var j = 0; j < grid[0].length; j++) {
+            if (grid[i][j] === 1) {
+                var area = islandArea(i, j);
+                max = area > max ? area : max;
+            }
+        }
+    }
+
+    function islandArea(x, y) {
+        var area = 0;
+        if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length || grid[x][y] === 0) {
+            return 0;
+        }
+        grid[x][y] = 0;
+        area = 1 + islandArea(x - 1, y) + islandArea(x + 1, y) + islandArea(x, y - 1) + islandArea(x, y + 1);
+        return area;
+    }
+    return max;
+}
+//Metrics: runtime of 68ms is faster than 95% and memory usage of 36mb is less than 90% of online submissions;
 
 //Surrounded Regions (https://leetcode.com/problems/surrounded-regions/)
 
