@@ -134,9 +134,37 @@ LinkedList.prototype.hasCycle = function() {
 };
 
 //Add Two Numbers (https://leetcode.com/problems/add-two-numbers/)
-var addTwoNumbers = function () {
+var addTwoNumbers = function (l1, l2) {
+    var head = new ListNode(0);
+    var current = head;
+    var carry = 0;
+    while (l1 || l2) {
+        l1 = l1 || new ListNode(0);
+        l2 = l2 || new ListNode(0);
 
+        var sum = l1.val + l2.val + carry;
+        if (sum <= 9) {
+            carry = 0;
+        } else {
+            carry = 1;
+            sum = sum - 10;
+        }
+
+        var node = new ListNode(sum);
+        current.next = node;
+        current = node;
+
+        l1 = l1.next;
+        l2 = l2.next
+    }
+
+    if (carry !== 0) {
+        current.next = new ListNode(carry);
+    }
+    return head.next;
 }
+
+//Metrics: runtime of 104ms is faster than 95% and memory usage of 38.3 is less than 70% of online submissions
 
 //Rotate List (https://leetcode.com/problems/rotate-list/)
 
