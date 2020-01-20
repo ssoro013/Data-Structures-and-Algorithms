@@ -53,6 +53,27 @@ var leafSimilar = function(root1, root2) {
 };
 //Metrics: runtime of 56ms faster than 80% and memory usage of 34mb less than 50% of online submissions
 
+//Binary Tree Paths (https://leetcode.com/problems/binary-tree-paths/)
+var binaryTreePaths = function(root) {
+    var paths = [];
+    function findPaths(node, sequence = "") {
+        if(!node) {
+            return ;
+        } else if (node.left || node.right) {
+            sequence += `${node.val}->`;
+        } else {
+            sequence += `${node.val}`;
+            paths.push(sequence);
+            return ;
+        }
+        findPaths(node.left, sequence);
+        findPaths(node.right, sequence);
+    }
+    findPaths(root, sequence = "");
+    return paths;
+};
+//Metrics: runtime of 48ms faster than 80% and memory usage of 34.4mb is less than 100% of online submissions
+
 //Path Sum (https://leetcode.com/problems/path-sum/)
 var hasPathSum = function (root, sum) {
     if (!root) {
