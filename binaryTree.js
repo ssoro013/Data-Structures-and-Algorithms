@@ -64,6 +64,9 @@ var hasPathSum = function (root, sum) {
     }
 }
 
+//Path Sum II (https://leetcode.com/problems/path-sum-ii/)
+
+//Path Sum III (https://leetcode.com/problems/path-sum-iii/)
 
 // Add One Row to Tree: (https://leetcode.com/problems/add-one-row-to-tree/)
 BinaryTree.prototype.addOneRow = function(root, v, d) {
