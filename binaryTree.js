@@ -87,7 +87,7 @@ var hasPathSum = function (root, sum) {
 
 //Path Sum II (https://leetcode.com/problems/path-sum-ii/)
 //Solution 1
-var pathSum = function(root, sum) {
+var pathSum1 = function(root, sum) {
     var paths = [];
     function findPathSum(node, currentSum = 0, nums = []) {
         if (!node) {
@@ -107,6 +107,27 @@ var pathSum = function(root, sum) {
     }
     findPathSum(root, currentSum = 0, nums = []);
     return paths;
+}
+
+//Solution 2
+var pathSum2 = function(root, sum) {
+    var paths = [];
+    function findPathSum(node, nums = []) {
+        if (!node) {
+            return ;
+        } else if (node.left || node.right) {
+            nums.push(node.val)
+        } else {
+            nums.push(node.val);
+            paths.push(nums);
+            return;
+        }
+        findPathSum(node.left, nums.slice());
+        findPathSum(node.right, nums.slice());
+    }
+
+    findPathSum(root, nums = []);
+    return paths.filter(path => path.reduce((a,b) => a + b) === sum );
 }
 
 //Path Sum III (https://leetcode.com/problems/path-sum-iii/)
