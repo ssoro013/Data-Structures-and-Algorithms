@@ -211,3 +211,11 @@ var nthUglyNumber = function (n) {
 
 //Number of Longest Increasing Subsequence (https://leetcode.com/problems/number-of-longest-increasing-subsequence/)
 
+//Longest Palindromic Substring (https://leetcode.com/problems/longest-palindromic-substring/)
+
+//Best Time to Buy and Sell Stock (https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+//Best Time to Buy and Sell Stock with Transaction Fee (https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
+
+//Shortest Common Supersequence (https://leetcode.com/problems/shortest-common-supersequence/)
+
