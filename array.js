@@ -235,3 +235,50 @@ var solution = function(isBadVersion) {
     };
 };
 //Metrics: runtime of 44ms is faster than 95% 
+
+//Find Duplicates
+//Solution 1
+var findDuplicates = function(arr1, arr2) {
+    var duplicates = [];
+    var i = 0;
+    var j = 0;
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] === arr2[j]) {
+            duplicates.push(arr1[i]);
+            i++;
+            j++;
+        } else if (arr1[i] < arr2[j]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    return duplicates;
+}
+
+//Solution 2
+var findDuplicates = function(arr1, arr2) {
+    var duplicates = [];
+    for (var i = 0; i < arr1.length; i++) {
+        if (binarySearch(arr2, arr1[i])) {
+            duplicates.push(arr1[i]);
+        }
+    }
+    return duplicates;
+}
+
+var binarySearch = function(arr, val) {
+    var low = 0;
+    var high = arr.length - 1;
+    while(low <= high) {
+        var mid = Math.floor((low + high) / 2);
+        if (arr[mid] === val) {
+            return true;
+        } else if (arr[mid] < val) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return false;
+}
