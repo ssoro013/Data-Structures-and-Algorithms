@@ -208,3 +208,6 @@ var nthUglyNumber = function (n) {
 //Metrics: runtime of 64ms is faster than 90% and runtime of 36.3mb is less than 100% of online submissions
 
 //DP Patterns (https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
+
+//Number of Longest Increasing Subsequence (https://leetcode.com/problems/number-of-longest-increasing-subsequence/)
+
