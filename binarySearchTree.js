@@ -87,10 +87,6 @@ BinarySearchTree.prototype.bfs = function() {
 
 };
 
-//Validate Binary Search Tree (https://leetcode.com/problems/validate-binary-search-tree/)
-BinarySearchTree.prototype.isValidBST = function() {
-
-};
 
 //iterative method
 BinarySearchTree.prototype.search = function(target) {
@@ -147,5 +143,19 @@ var kthSmallest = function(root, k) {
   add(root);
   return arr.sort((a, b) => a - b)[k - 1];
 };
+
+//Validate Binary Search Tree (https://leetcode.com/problems/validate-binary-search-tree/)
+var isValidBST = function(root, min = - Infinity, max = Infinity) {
+    if (!root) {
+        return true;
+    } else if (root.val <= min || root.val >= max) {
+        return false;
+    } else if ((root.left && root.left.val >= root.val) || (root.right && root.right.val <= root.val)) {
+        return false;
+    } else {
+        return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max)
+    }
+}
+//Metrics: runtime of 60ms is faster than 90% and memory usage of 37mb is less than 100% of online submissions
 
 //Unique Binary Search Trees (https://leetcode.com/problems/unique-binary-search-trees/)
