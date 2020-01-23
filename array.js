@@ -282,3 +282,20 @@ var binarySearch = function(arr, val) {
     }
     return false;
 }
+
+//Product of Array Except Self (https://leetcode.com/problems/product-of-array-except-self/)
+var productExceptSelf = function(nums) {
+    var n = nums.length;
+    var output = new Array(n);
+    output[0] = 1;
+    for (var i = 1; i < n; i++) {
+        output[i] = output[i - 1] * nums[i - 1];
+    }
+    var r = 1;
+    for (var j = n - 1; j >= 0; j--) {
+        output[j] = output[j] * r;
+        r *= nums[j];
+    }
+    return output;
+}
+//metrics: runtime of 72ms is faster than 90% and memory usage of 42.1 is less than 90% of online submissions
