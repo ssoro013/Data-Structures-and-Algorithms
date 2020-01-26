@@ -299,3 +299,29 @@ var productExceptSelf = function(nums) {
     return output;
 }
 //metrics: runtime of 72ms is faster than 90% and memory usage of 42.1 is less than 90% of online submissions
+
+//Search in Rotated Arrat (https://leetcode.com/problems/search-in-rotated-sorted-array/)
+var search = function(nums, target) {
+    var low = 0;
+    var high = nums.length - 1;
+    while (low <= high) {
+        var mid = Math.floor((low + high) / 2);
+        if(nums[mid] === target) {
+            return mid;
+        } else if(nums[low] <= nums[mid]) {
+            if(nums[low] <= target && target <= nums[mid]) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        } else {
+            if(nums[mid] <= target && target <= nums[high]) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+    }
+    return -1;
+}
+//metrics: runtime of 48ms is faster than 96% and memory usage of 33.7mb is less than 96% of online submissions
