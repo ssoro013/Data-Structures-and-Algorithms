@@ -218,4 +218,3 @@ var nthUglyNumber = function (n) {
 //Best Time to Buy and Sell Stock with Transaction Fee (https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
 
 //Shortest Common Supersequence (https://leetcode.com/problems/shortest-common-supersequence/)
-
