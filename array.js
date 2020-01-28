@@ -300,7 +300,7 @@ var productExceptSelf = function(nums) {
 }
 //metrics: runtime of 72ms is faster than 90% and memory usage of 42.1 is less than 90% of online submissions
 
-//Search in Rotated Arrat (https://leetcode.com/problems/search-in-rotated-sorted-array/)
+//Search in Rotated Array (https://leetcode.com/problems/search-in-rotated-sorted-array/)
 var search = function(nums, target) {
     var low = 0;
     var high = nums.length - 1;
@@ -325,3 +325,5 @@ var search = function(nums, target) {
     return -1;
 }
 //metrics: runtime of 48ms is faster than 96% and memory usage of 33.7mb is less than 96% of online submissions
+
+//Search in Rotated Sorted Array II (https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
