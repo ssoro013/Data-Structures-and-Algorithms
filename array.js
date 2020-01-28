@@ -327,3 +327,5 @@ var search = function(nums, target) {
 //metrics: runtime of 48ms is faster than 96% and memory usage of 33.7mb is less than 96% of online submissions
 
 //Search in Rotated Sorted Array II (https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
+
+//Find Minimum in Rotated Sorted Array (https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
