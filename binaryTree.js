@@ -141,3 +141,20 @@ BinaryTree.prototype.addOneRow = function(root, v, d) {
 BinaryTree.prototype.findTilt = function(root) {
 
 }
+
+//Univalued Binary Tree (https://leetcode.com/problems/univalued-binary-tree/)
+var isUnivalTree = function(root) {
+    var value = root.val;
+    function check(node) {
+        if (!node) {
+            return true;
+        } else if (node.val !== value) {
+            return false;
+        } else {
+            return check(node.left) && check(node.right);
+        }
+    }
+    return check(root);
+}
+
+//metrics: runtime of 52ms is faster than 85%
