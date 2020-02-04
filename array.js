@@ -326,6 +326,21 @@ var search = function(nums, target) {
 }
 //metrics: runtime of 48ms is faster than 96% and memory usage of 33.7mb is less than 96% of online submissions
 
+//Search Suggestions System (https://leetcode.com/problems/search-suggestions-system/)
+var suggestedProducts = function(products, searchWord) {
+    products.sort();
+    var word = '';
+    var output = [];
+    for(var i = 0; i < searchWord.length; i++) {
+        word += searchWord[i];
+        var l = word.length;
+        var arr = products.filter(product => product.slice(0, l) === word);
+        output.push(arr.slice(0, 3));
+    }
+    return output;
+}
+//metrics: runtime of 148ms is faster than 60% and memory usage of 49.5mb is less than 100% of online submissions
+
 //Search in Rotated Sorted Array II (https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
 
 //Find Minimum in Rotated Sorted Array (https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
