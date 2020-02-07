@@ -88,6 +88,24 @@ var longestValidParentheses = function(s) {
     return 0;
 };
 
+//Minimum Add to Make Parentheses Valid (https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/)
+var minAddToMakeValid = function(S) {
+    var count = 0;
+    var stack = [];
+    for(var i = 0; i < S.length; i++) {
+        if(S[i] === '(') {
+            stack.push(S[i])
+        } else {
+            if(stack.length > 0) {
+                stack.pop();
+            } else {
+                count ++;
+            }
+        }
+    }
+    return count + stack.length;
+}
+
 //Minimum Window Substring (https://leetcode.com/problems/minimum-window-substring/)
 var minWindow = function(s, t) {
     var window = t.length;
