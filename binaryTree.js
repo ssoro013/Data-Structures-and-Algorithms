@@ -158,3 +158,23 @@ var isUnivalTree = function(root) {
 }
 
 //metrics: runtime of 52ms is faster than 85%
+
+//Sum Root to Leaf Numbers (https://leetcode.com/problems/sum-root-to-leaf-numbers/)
+var sumNumbers = function(root) {
+    var output = 0;
+    function recurse(node, sum = '') {
+        if(!node) {
+            return ;
+        } else if(!node.left && !node.right) {
+            sum += node.val;
+            output += Number(sum);
+            return ;
+        } else {
+            sum += node.val;
+            recurse(node.left, sum);
+            recurse(node.right, sum);
+        }
+    }
+    recurse(root, sum = '');
+    return output;
+}
