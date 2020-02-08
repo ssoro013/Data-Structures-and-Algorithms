@@ -341,6 +341,27 @@ var suggestedProducts = function(products, searchWord) {
 }
 //metrics: runtime of 148ms is faster than 60% and memory usage of 49.5mb is less than 100% of online submissions
 
+//Merge Intervals (https://leetcode.com/problems/merge-intervals/)
+var merge = function(intervals) {
+    
+}
+
 //Search in Rotated Sorted Array II (https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
 
 //Find Minimum in Rotated Sorted Array (https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
+
+//Pairs with Specific Difference (https://www.pramp.com/challenge/XdMZJgZoAnFXqwjJwnpZ)
+var findPairsWithGivenDifference = function(arr, k) {
+    //x - y = k => x = y + k
+    var output = [];
+    var hash = {};
+    for(var x = 0; x < arr.length; x++) {
+        hash[arr[x]] = true;
+    }
+    for(var y = 0; y < arr.length; y++) {
+        if(hash[arr[y] + k]) {
+            output.push([arr[y] + k, arr[y]]);
+        }
+    }
+    return output;
+}
