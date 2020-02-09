@@ -90,20 +90,20 @@ var longestValidParentheses = function(s) {
 
 //Minimum Add to Make Parentheses Valid (https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/)
 var minAddToMakeValid = function(S) {
-    var count = 0;
-    var stack = [];
+    var open = 0;
+    var close = 0;
     for(var i = 0; i < S.length; i++) {
         if(S[i] === '(') {
-            stack.push(S[i])
+            open ++;
         } else {
-            if(stack.length > 0) {
-                stack.pop();
+            if(open > 0) {
+                open --;
             } else {
-                count ++;
+                close ++;
             }
         }
     }
-    return count + stack.length;
+    return open + close;
 }
 
 //Minimum Window Substring (https://leetcode.com/problems/minimum-window-substring/)
