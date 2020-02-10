@@ -123,3 +123,25 @@ var minWindow = function(s, t) {
 };
 
 //Note: refator to solve in O(n)
+
+//String Compression (https://leetcode.com/problems/string-compression/)
+var compress = function(chars) {
+    var output = '';
+    var char = chars[0];
+    var count = 1;
+    for(var i = 1; i < chars.length; i++) {
+        if(chars[i] === char) {
+            count ++;
+        } else {
+            if(count > 1) {
+                output += char + count;
+            } else {
+                output += char;
+            }
+            char = chars[i];
+            count = 1;
+        }
+    }
+    count > 1 ? output += char + count : output += char;
+    return output.split('');
+};
