@@ -178,3 +178,27 @@ var sumNumbers = function(root) {
     recurse(root, sum = '');
     return output;
 }
+
+//Binary Tree Level Order Traversal(https://leetcode.com/problems/binary-tree-level-order-traversal/)
+var levelOrder = function(root) {
+    var arr = [];
+
+    function traverse(node, level) {
+        if(!node) {
+            return ;
+        } else {
+            if(level > arr.length) {
+                arr.push([]);
+            }
+            arr[level - 1].push(node.val);
+            traverse(node.left, level + 1);
+            traverse(node.right, level + 1);
+        }
+    }
+
+    traverse(root, 1);
+
+    return arr;
+}
+
+//Maximum Level Sum of a Binary Tree (https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/)
