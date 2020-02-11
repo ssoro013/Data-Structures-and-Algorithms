@@ -202,3 +202,22 @@ var levelOrder = function(root) {
 }
 
 //Maximum Level Sum of a Binary Tree (https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/)
+var maxLevelSum = function(root) {
+    var arr = [];
+
+    function traverse(node, level) {
+        if(!node) {
+            return ;
+        } else {
+            if(level > arr.length) {
+                arr.push(0);
+            }
+            arr[level - 1] += node.val;
+            traverse(node.left, level + 1);
+            traverse(node.right, level + 1);
+        }
+    }
+
+    traverse(root, 1)
+    return arr.indexOf(Math.max(...arr)) + 1;
+}
