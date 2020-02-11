@@ -317,3 +317,23 @@ z = y['baz']['foo']
 console.log(z)
 
 // https://www.toptal.com/javascript/interview-questions
+
+//Once Function
+var once = function(fn) {
+    var result;
+    return function() {
+        if(fn) {
+            result = fn.apply(this, arguments);
+            fn = null;
+        }
+        return result;
+    };
+}
+
+var canOnlyFireOnce = once(function() {
+	console.log('Fired!');
+});
+canOnlyFireOnce();
+canOnlyFireOnce();
+canOnlyFireOnce();
+canOnlyFireOnce();
