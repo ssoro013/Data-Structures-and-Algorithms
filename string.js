@@ -108,19 +108,60 @@ var minAddToMakeValid = function(S) {
 
 //Minimum Window Substring (https://leetcode.com/problems/minimum-window-substring/)
 var minWindow = function(s, t) {
-    var window = t.length;
-    var chars = t.split("");
-    while (window <= s.length) {
-        for (var i = 0; i < s.length - window +1; i++) {
-            var current = s.slice(i, i + window).splilt("");
-            if (chars.every(char => chars.filter(i => i === char).length <= current.filter(i => i === char).length)) {
-                return current.join("");
+    if(s.length === 0 || t.length === 0 || s.length < t.length) {
+        return '';
+    }
+    var min = ""; 
+    var left = 0;
+    var right = -1;
+    var map = {};
+
+    for(var i = 0; i < t.length; i++) {
+        map[t[i]] ? map[t[i]]++ : map[t[i]] = 1;
+    }
+	
+    var count = Object.keys(map).length;
+
+    while(right <= s.length) {
+        if(count == 0) {
+            var current = s[left];
+            
+            if(map[current] != null) {
+                map[current]++
+            }
+            
+            if(map[current] > 0) {
+                count++;
+            }
+			
+            var temp = s.substring(left, right+1)
+            
+            if(min == ""){
+                min = temp;
+            }
+            else {
+                min = min.length < temp.length? min : temp;
+            };
+			
+            left++;
+        } else {
+            right++;
+            var current = s[right];
+            if(map[current] != null) {
+                map[current]--;
+            }
+            if(map[current] == 0) {
+                count--;
             }
         }
-        window ++;
     }
-    return "";
+    return min;
 };
+
+var s = "ADOBECODEBANC";
+var t = "ABC"
+var output = minWindow(s, t);
+console.log(output)
 
 //Note: refator to solve in O(n)
 
@@ -145,3 +186,23 @@ var compress = function(chars) {
     count > 1 ? output += char + count : output += char;
     return output.split('');
 };
+
+//Calculator
+var calculate = function(str) {
+    var integers = str.split(/[x^+-]/);
+    var signs = str.split('').filter(char => char === '+' || char === '-');
+    signs.unshift('+');
+    var sum = 0;
+    for (var i = 0; i < integers.length; i++) {
+        if (signs[i] === '+') {
+            sum += Number(integers[i]);
+        } else {
+            sum -= Number(integers[i]);
+        }
+    }
+    return sum;
+}
+
+var input = '1-1+1-120';
+var output = calculate(input);
+console.log(output)
