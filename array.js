@@ -365,3 +365,15 @@ var findPairsWithGivenDifference = function(arr, k) {
     }
     return output;
 }
+
+//K-Messed Array Sort (https://www.pramp.com/challenge/XdMZJgZoAnFXqwjJwnBZ)
+var sortKMessedArray = function(arr, k) {
+    for(var i = 0; i < arr.length; i++) {
+        var min = Math.min(...arr.slice(i, i + k + 1));
+        var minIndex = arr.indexOf(min);
+        var temp = arr[i];
+        arr[i] = min;
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
