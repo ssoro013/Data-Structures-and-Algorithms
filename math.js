@@ -81,3 +81,23 @@ var myPow = function(x, n) {
 //Metrics: runtime of 48ms is faster than 98% and memory usage of 22.8mb is less than 88% of online submissions
 
 //Super Pow (https://leetcode.com/problems/super-pow/)
+
+//Evaluate Reverse Polish Notation(https://leetcode.com/problems/evaluate-reverse-polish-notation/)
+var evalRPN = function(tokens) {
+    let stack = [];
+    let functions = {
+        '+': (a,b) => a + b,
+        '-': (a,b) => b - a,
+        '*': (a,b) => a * b,
+        '/': (a,b) => Math.trunc(b/a)
+    }
+    for(let i = 0; i < tokens.length; i++) {
+        if(!isNaN(tokens[i])) {
+            stack.push(Number(tokens[i]))
+        } else {
+            let result = functions[tokens[i]](stack.pop(), stack.pop());
+            stack.push(result);
+        }
+    }
+    return stack[0];
+}
