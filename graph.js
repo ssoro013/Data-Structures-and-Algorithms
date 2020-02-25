@@ -236,6 +236,33 @@ var shortestPathBinaryMatrix = function(grid) {
     return -1;
 }
 
+//Shortest Cell Path(https://www.pramp.com/challenge/Y56aZmaj9Ptmd9wV9xvL)
+function shortestCellPath(grid, sr, sc, tr, tc) {
+    let row = grid.length - 1;
+    let col = grid[0].length - 1;
+    let queue = [[sr, sc]];
+    let path = 0;
+    while(queue.length !== 0) {
+        let copy = queue;
+        queue = [];
+        for(let [r, c] of copy) {
+            if(r < 0 || r > row || c < 0 || c > col || grid[r][c] === 0) {
+                continue ;
+            }
+            grid[r][c] = 0;
+            if(r === tr && c === tc) {
+                return path;
+            }
+            queue.push([r - 1, c]);
+            queue.push([r + 1, c]);
+            queue.push([r, c - 1]);
+            queue.push([r, c + 1]);
+        }
+        path ++;
+    }
+    return -1;
+}
+
 //Roate Image(https://leetcode.com/problems/rotate-image/)
 
 //Word Search (https://leetcode.com/problems/word-search/)
