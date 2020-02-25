@@ -201,5 +201,41 @@ var uniquePaths = function (m, n) {
 //Unique Paths II (https://leetcode.com/problems/unique-paths-ii/)
 
 //Shortest Path in Binary Matrix (https://leetcode.com/problems/shortest-path-in-binary-matrix/)
+var shortestPathBinaryMatrix = function(grid) {
+    let row = grid.length - 1;
+    let col = grid[0].length - 1;
+
+    let queue = [[0,0]]
+    let path = 1;
+    while(queue.length !== 0) {
+        let copy = queue;
+        queue = [];
+
+        for(let i = 0; i < copy.length; i++) {
+            let r = copy[i][0];
+            let c = copy[i][1];
+            if(r < 0 || r > row || c < 0 || c > col || grid[r][c] === 1) {
+                continue;
+            }
+            grid[r][c] = 1;
+            if(r === row && c === col) {
+                return path;
+            }
+            queue.push([r - 1, c])
+            queue.push([r + 1, c])
+            queue.push([r, c - 1])
+            queue.push([r, c + 1])
+            queue.push([r - 1, c - 1])
+            queue.push([r - 1, c + 1])
+            queue.push([r + 1, c - 1])
+            queue.push([r + 1, c + 1])
+        }
+        path ++;
+    }
+
+    return -1;
+}
 
 //Roate Image(https://leetcode.com/problems/rotate-image/)
+
+//Word Search (https://leetcode.com/problems/word-search/)
