@@ -216,3 +216,38 @@ var reverseString = function(s) {
     }
     return s;
 }
+
+//Sentence Reverse (https://www.pramp.com/challenge/VKdqbrq6B1S5XAyGAOn4)
+var reverseWords = function(arr) {
+    let first = null;
+    let n = arr.length - 1;
+    reverseHelper(arr, 0, n);
+    for(let i = 0; i <= n; i++) {
+        if(arr[i] === ' ') {
+            if(first !== null) {
+                reverseHelper(arr, first, i - 1)
+                first = null;
+            }
+        } else if(i === n) {
+            if(first !== null) {
+                reverseHelper(arr, first, i);
+            }
+        } else {
+            if(first === null) {
+                first = i;
+            }
+        }
+    }
+
+    return arr;
+}
+
+var reverseHelper = function(arr, first, last) {
+    while(first <= last) {
+        let temp = arr[first];
+        arr[first] = arr[last];
+        arr[last] = temp;
+        first ++;
+        last --;
+    }
+}
