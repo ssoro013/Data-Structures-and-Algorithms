@@ -159,7 +159,7 @@ var minWindow = function(s, t) {
 };
 
 var s = "ADOBECODEBANC";
-var t = "ABC"
+var t = "ABC";
 var output = minWindow(s, t);
 console.log(output)
 
@@ -203,6 +203,16 @@ var calculate = function(str) {
     return sum;
 }
 
-var input = '1-1+1-120';
-var output = calculate(input);
-console.log(output)
+//Reverse String(https://leetcode.com/problems/reverse-string/)
+var reverseString = function(s) {
+    let first = 0;
+    let last = s.length - 1;
+    while(first <= last) {
+        let temp = s[first];
+        s[first] = s[last];
+        s[last] = temp;
+        first ++;
+        last --;
+    }
+    return s;
+}
