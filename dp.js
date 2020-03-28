@@ -155,6 +155,29 @@ var threeSum = function(nums) {
 //Metrics: runtime of 152ms is faster than 90% and memory usage of 46.7mb is less than 80% of online submissions
 
 //Combination Sum (https://leetcode.com/problems/combination-sum/)
+var combinationSumI = function(candidates, target) {
+    var output = [];
+    function recurse(start, arr, rem) {
+        if(rem < 0) {
+            return ;
+        }
+        if(rem === 0) {
+            output.push(arr.slice());
+            return ;
+        }
+        for(var i = start; i < candidates.length; i++) {
+            arr.push(candidates[i]);
+            recurse(start, arr, rem - candidates[i]);
+            arr.pop();
+        }
+    }
+    recurse(0, [], target);
+    return output;
+}
+
+//Combination Sum II (https://leetcode.com/problems/combination-sum-ii/)
+
+//Combination Sum III ()
 
 //Word Ladder (https://leetcode.com/problems/word-ladder/)
 
@@ -206,6 +229,53 @@ var nthUglyNumber = function (n) {
     return stack[n - 1];
 };
 //Metrics: runtime of 64ms is faster than 90% and runtime of 36.3mb is less than 100% of online submissions
+
+
+//Basic Calculator (https://leetcode.com/problems/basic-calculator/)
+var calculate = function(s) {
+    s = s.replace('--', '+')
+    var open = s.lastIndexOf('(');
+    function recurse(open) {
+        if(open === -1) {
+            return ;
+        }
+        var close = open;
+        while(s[close] !== ')') {
+            close ++;
+        }
+        var substring1 = s.substring(open, close + 1);
+        var substring2 = s.substring(open + 1, close);
+        var sum = calculateHelper(substring2).toString();
+        s = s.replace(substring1, sum);
+        var open = s.lastIndexOf('(');
+        recurse(open);
+    }
+    
+    recurse(open);
+    return calculateHelper(s);
+    // return s;
+}
+var calculateHelper = function(s) {
+    s.trim();
+    var integers = s.split(/[x^+-]/);
+    var signs = s.split('').filter(char => char === '+' || char === '-');
+    signs.unshift('+');
+    var sum = 0;
+    for (var i = 0; i < integers.length; i++) {
+        if (signs[i] === '+') {
+            sum += Number(integers[i]);
+        } else {
+            sum -= Number(integers[i]);
+        }
+    }
+    return sum;
+};
+
+var input = "(1+(4+5+2)-3)+(6+8)";
+var output = calculate(input);
+console.log(output)
+
+
 
 //DP Patterns (https://leetcode.com/discuss/general-discussion/458695/dynamic-programming-patterns)
 
