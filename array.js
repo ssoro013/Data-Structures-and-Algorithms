@@ -406,3 +406,12 @@ var dailyTemperatures = function(T) {
     }
     return output;
 };
+
+//Subsets
+var subsets = function(nums) {
+    let output = [[]];
+    for(let i = 0; i < nums.length; i++) {
+        output.forEach(item => output.push([...item, nums[i]]));
+    }
+    return output;
+}
