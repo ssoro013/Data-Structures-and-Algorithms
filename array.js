@@ -407,11 +407,41 @@ var dailyTemperatures = function(T) {
     return output;
 };
 
-//Subsets
+//Subsets (https://leetcode.com/problems/subsets/)
 var subsets = function(nums) {
     let output = [[]];
     for(let i = 0; i < nums.length; i++) {
         output.forEach(item => output.push([...item, nums[i]]));
     }
     return output;
+}
+
+//Contains Duplicate (https://leetcode.com/problems/contains-duplicate/)
+//Solution 1 (Hash Table)
+var containsDuplicate = function(nums) {
+    let counts = {};
+    for(let i = 0; i < nums.length; i++) {
+        if(!counts[nums[i]]) {
+            counts[nums[i]] = 1;
+        } else {
+            return true;
+        }
+    }
+    return false;
+};
+
+//Solution 2 (Set)
+var containsDuplicate = function(nums) {
+    return new Set(nums).size !== nums.length;
+}
+
+//Solution 3 (Sort)
+var containsDuplicate = function(nums) {
+    nums.sort();
+    for(let i = 0; i < nums.length - 1; i++) {
+        if(nums[i] === nums[i + 1]) {
+            return true;
+        }
+    }
+    return false;
 }
