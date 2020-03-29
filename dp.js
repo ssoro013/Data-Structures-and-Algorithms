@@ -271,9 +271,24 @@ var calculateHelper = function(s) {
     return sum;
 };
 
-var input = "(1+(4+5+2)-3)+(6+8)";
-var output = calculate(input);
-console.log(output)
+//House Robber (https://leetcode.com/problems/house-robber)
+var rob = function(nums) {
+    if(nums.length === 0) {
+        return 0;
+    }
+    if(nums.length === 1) {
+        return nums[0]
+    }
+    if(nums.length === 2) {
+        return Math.max(...nums);
+    }
+    let max = [nums[0], Math.max(nums[0], nums[1])];
+    for (let i = 2; i < nums.length; i++) {
+        max[i] = Math.max(max[i - 2] + nums[i], max[i - 1])
+    }
+
+    return max[max.length - 1];
+}
 
 
 
