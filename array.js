@@ -387,3 +387,22 @@ var singleNumber = function(nums) {
         }
     }
 }
+
+//Daily Temperatures (https://leetcode.com/problems/daily-temperatures/)
+var dailyTemperatures = function(T) {
+    let output = [];
+    for(let i = 0; i < T.length; i++) {
+        let j = i + 1;
+        let count = 1;
+        while(T[i] >= T[j]) {
+            count ++;
+            j ++;
+        }
+        if(T[j] > T[i]) {
+            output.push(count);
+        } else {
+            output.push(0)
+        }
+    }
+    return output;
+};
