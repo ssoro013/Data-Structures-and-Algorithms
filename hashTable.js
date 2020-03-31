@@ -49,39 +49,6 @@ class HashTable {
     }
 }
 
-//Contains Duplicate I (https://leetcode.com/problems/contains-duplicate/)
-var containsDuplicateI = function(nums) {
-    return new Set(nums).size !== nums.length;
-};
-//metrics: runtime faster than 85% and memory usage less than 75% of online submissions
-
-//Contains Duplicate II (https://leetcode.com/problems/contains-duplicate-ii/)
-var containsNearbyDuplicate = function(nums, k) {
-    var map = {};
-    for (var i = 0; i < nums.length; i++) {
-        if (map[nums[i]] >= 0 && i - map[nums[i]] <= k) {
-            return true;
-        } else {
-            map[nums[i]] = i;
-        }
-    }
-    return false;
-}
-    
-
-//Contains Duplicate III (https://leetcode.com/problems/contains-duplicate-iii/)
-var containsNearbyAlmostDuplicate = function(nums, k, t) {
-    for (var i = 0; i < nums.length - 1; i++) {
-        for (var j = i + 1; j < nums.length; j++) {
-            if (Math.abs(nums[i] - nums[j]) <= t && Math.abs(i - j) <= k) {
-                return true;
-            }
-        }
-    }
-    return false;
-};
-
-
 //First Unique Character (https://leetcode.com/problems/first-unique-character-in-a-string/)
 var firstUniqChar = function(s) {
     var obj = {};
