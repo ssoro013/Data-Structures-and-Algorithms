@@ -445,3 +445,29 @@ var containsDuplicate = function(nums) {
     }
     return false;
 }
+
+//Contains Duplicate II (https://leetcode.com/problems/contains-duplicate-ii/)
+var containsNearbyDuplicate = function(nums, k) {
+    var map = {};
+    for (var i = 0; i < nums.length; i++) {
+        if (map[nums[i]] >= 0 && i - map[nums[i]] <= k) {
+            return true;
+        } else {
+            map[nums[i]] = i;
+        }
+    }
+    return false;
+}
+    
+
+//Contains Duplicate III (https://leetcode.com/problems/contains-duplicate-iii/)
+var containsNearbyAlmostDuplicate = function(nums, k, t) {
+    for (var i = 0; i < nums.length - 1; i++) {
+        for (var j = i + 1; j < nums.length; j++) {
+            if (Math.abs(nums[i] - nums[j]) <= t && Math.abs(i - j) <= k) {
+                return true;
+            }
+        }
+    }
+    return false;
+};
