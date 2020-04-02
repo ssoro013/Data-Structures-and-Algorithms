@@ -101,3 +101,23 @@ var evalRPN = function(tokens) {
     }
     return stack[0];
 }
+
+//Happy Number (https://leetcode.com/problems/happy-number/)
+var isHappy = function(n) {
+    let num = helper(n);
+    let previous = [];
+    while(!previous.includes(num) && num !== 1) {
+        previous.push(num);
+        num = helper(num);
+    }
+    return num === 1;
+};
+
+var helper = function(n) {
+    let output = 0;
+    let digits = n.toString();
+    for (let i = 0; i < digits.length; i++) {
+        output += Math.pow(Number(digits[i]), 2);
+    }
+    return output;
+};
