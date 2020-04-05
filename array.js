@@ -471,3 +471,21 @@ var containsNearbyAlmostDuplicate = function(nums, k, t) {
     }
     return false;
 };
+
+//Move Zeroes (https://leetcode.com/problems/move-zeroes/)
+//Solution 1
+var moveZeroes = function(nums) {
+    let first = -1;
+    for(let i = 0; i < nums.length; i++) {
+        if(nums[i] === 0) {
+            first = first === -1 ? i : first;
+        }
+        else if(first >= 0) {
+            nums[first] = nums[i];
+            nums[i] = 0;
+            first ++;
+        }
+    }
+    return nums;
+}
+
