@@ -489,3 +489,24 @@ var moveZeroes = function(nums) {
     return nums;
 }
 
+//Solution 2
+var moveZeroes = function(nums) {
+    if(nums.length < 2) {
+        return nums;
+    }
+    let length = nums.length;
+    let left = 0;
+    let right = 1;
+    while(right < length) {
+        if(nums[left] === 0) {
+            if(nums[right] !== 0) {
+                [nums[left], nums[right]] = [nums[right], nums[left]];
+                left ++;
+            }
+        } else {
+            left ++;
+        }
+        right ++;
+    }
+    return nums;
+};
