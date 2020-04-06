@@ -534,3 +534,22 @@ var maxProfit = function(prices) {
     }
     return max;
 }
+
+//Group Anagrams (https://leetcode.com/problems/group-anagrams/)
+var groupAnagrams = function(strs) {
+    let input = strs.map(str=> [...str].sort().join(''));
+    let output = [];
+    let map = {}
+    for(let i = 0; i < input.length; i++) {
+        if(!map[input[i]]) {
+            map[input[i]] = [strs[i]]
+        } else {
+            map[input[i]].push(strs[i])
+        }
+    }
+
+    for(let str in map) {
+        output.push(map[str])
+    }
+    return output;
+};
