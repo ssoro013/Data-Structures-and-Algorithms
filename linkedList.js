@@ -43,6 +43,16 @@ LinkedList.prototype.middleNode = function() {
     return arr[middle];
 };
 
+var middleNode = function(head) {
+    let slow = head;
+    let fast = head;
+    while(fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next.next
+    }
+    return slow;
+}
+
 LinkedList.prototype.reverse = function() {
     var current = this.head;
     var previous = null;
@@ -193,3 +203,4 @@ var removeElements = function (head, val) {
     return head
 }
 //Metrics: runtime of 68ms faster than 90% and memory usage of 37mb less than 50% of online submissions
+
