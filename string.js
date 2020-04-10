@@ -253,3 +253,20 @@ var reverseHelper = function(arr, first, last) {
 }
 
 //Longest Palindromic Substring (https://leetcode.com/problems/longest-palindromic-substring/)
+
+//Backspace String Compare(https://leetcode.com/problems/backspace-string-compare/)
+var backspaceCompare = function(S, T) {
+    return build(S) === build(T);
+}
+
+var build = function(str) {
+    let output = [];
+    for(let i = 0; i < str.length; i++) {
+        if(str[i] === '#') {
+            output.pop()
+        } else {
+            output.push(str[i]);
+        }
+    }
+    return output.join('');
+}
