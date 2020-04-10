@@ -545,3 +545,18 @@ var groupAnagrams = function(strs) {
     }
     return Object.values(map);
 };
+
+//Sum of Subarray Minimums(https://leetcode.com/problems/sum-of-subarray-minimums/)
+var sumSubarrayMins = function(A) {
+    let subs = [];
+    let window = 1;
+    while(window <= A.length) {
+        for(let i = 0; i < A.length - window + 1; i++) {
+            subs.push(A.slice(i, i + window));
+        }
+        window ++
+    }
+    let output = 0;
+    subs.forEach(sub=> output+= Math.min(...sub))
+    return output % (Math.pow(10, 9) + 7);
+};
