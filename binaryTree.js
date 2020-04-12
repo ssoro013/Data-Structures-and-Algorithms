@@ -204,7 +204,6 @@ var levelOrder = function(root) {
 //Maximum Level Sum of a Binary Tree (https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/)
 var maxLevelSum = function(root) {
     var arr = [];
-
     function traverse(node, level) {
         if(!node) {
             return ;
@@ -243,4 +242,20 @@ var invertTree = function(root) {
     }
     [root.left, root.right] = [invertTree(root.right), invertTree(root.left)];
     return root;
+}
+
+//Diameter of Binary Tree(https://leetcode.com/problems/diameter-of-binary-tree/)
+var diameterOfBinaryTree = function(root) {
+    let max = 0;
+    function maxDepth(node) {
+        if(!node) {
+            return 0;
+        }
+        let left = maxDepth(node.left);
+        let right = maxDepth(node.right);
+        max = Math.max(max, left + right);
+        return Math.max(left, right) + 1
+    }
+    maxDepth(root);
+    return max;
 }
