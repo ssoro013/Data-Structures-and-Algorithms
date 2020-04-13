@@ -560,3 +560,22 @@ var sumSubarrayMins = function(A) {
     subs.forEach(sub=> output+= Math.min(...sub))
     return output % (Math.pow(10, 9) + 7);
 };
+
+//Last Stone Weight(https://leetcode.com/problems/last-stone-weight/)
+var lastStoneWeight = function(stones) {
+    stones.sort((a,b)=> a - b);
+    let l = stones.length;
+    while(l > 1) {
+        let x = stones[l - 2];
+        let y = stones[l - 1];
+        if(x === y) {
+            stones.pop();
+            stones.pop();
+        }
+        if(x !== y) {
+            stones[l - 1] = y - x;
+            stones.splice(l - 2, 1);
+        }
+        stones.sort((a,b)=> a - b);
+    }
+}
