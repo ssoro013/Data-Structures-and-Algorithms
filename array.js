@@ -579,3 +579,17 @@ var lastStoneWeight = function(stones) {
         stones.sort((a,b)=> a - b);
     }
 }
+
+//Contiguous Array(https://leetcode.com/problems/contiguous-array/)
+var findMaxLength = function(nums) {
+    let map = {0:-1};
+    let count = 0;
+    let max = 0;
+    for (let i=0;i<nums.length;i++) {
+        if (nums[i] == 0) count--;
+        else count++;
+        if (map[count]!=null) max = Math.max(max, i - map[count]);
+        else map[count] = i 
+    }
+    return max;
+};
