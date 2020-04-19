@@ -315,3 +315,8 @@ var hammingDistance = function(x){
 var hammingDistance = function(x, y) {
     return (x ^ y).toString(2).split('').filter(bit=> bit === '1').length;
 };
+
+//Hamming Weight(https://leetcode.com/problems/number-of-1-bits/)
+var hammingWeight = function(n) {
+    return n.toString(2).split('').filter(bit=> bit === '1').length
+};
