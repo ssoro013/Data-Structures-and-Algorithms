@@ -121,3 +121,8 @@ var helper = function(n) {
     }
     return output;
 };
+
+//Nim Game (https://leetcode.com/problems/nim-game/)
+var canWinNim = function(n) {
+    return  (n % 4 !== 0);
+};
