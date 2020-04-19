@@ -270,3 +270,43 @@ var build = function(str) {
     }
     return output.join('');
 }
+
+//Valid Parenthesis String(https://leetcode.com/problems/valid-parenthesis-string/)
+var checkValidString = function(s) {
+    return valid(s) || valid(s.replace(/[*]/, '')) || valid(s.replace(/[*]/, ')')) || valid(s.replace(/[*]/, '('))
+}
+
+var valid = function(s) {
+    let open = 0;
+    let close = 0;
+    for(let i = 0; i < s.length; i++) {
+        if(s[i] === '(') {
+            open ++;
+        } else {
+            if(open > 0) {
+                open --;
+            } else {
+                close ++;
+            }
+        }
+    }
+    return open + close === 0;
+}
+
+
+//Hamming Distance(https://leetcode.com/problems/hamming-distance/)
+    //Solution 1
+var hammingDistance = function(x){
+    let count = 0;
+    let bit1 = x.toString(2).split('');
+    let bit2 = y.toString(2).split('');
+    let length = Math.max(bit1.length, bit2.length, 4)
+    for(let i = 0; i < length; i++) {
+        let char1 = bit1.pop() || '0';
+        let char2 = bit2.pop() || '0';
+        if(char1 !== char2) {
+            count ++;
+        }
+    }
+    return count;
+};
