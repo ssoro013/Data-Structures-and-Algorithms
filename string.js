@@ -309,4 +309,9 @@ var hammingDistance = function(x){
         }
     }
     return count;
+}
+
+    //Solution 2
+var hammingDistance = function(x, y) {
+    return (x ^ y).toString(2).split('').filter(bit=> bit === '1').length;
 };
