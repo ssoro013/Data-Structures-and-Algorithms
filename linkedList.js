@@ -204,3 +204,24 @@ var removeElements = function (head, val) {
 }
 //Metrics: runtime of 68ms faster than 90% and memory usage of 37mb less than 50% of online submissions
 
+
+// Remove Nth Node From End of List (https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+var removeNthFromEnd = function(head, n) {
+    let dummy = new ListNode(0);
+    dummy.next = head;
+    let length = 0;
+    let current = head;
+    while(current) {
+        length ++;
+        current = current.next;
+    }
+
+    length -= n;
+    current = dummy;
+    while(length > 0) {
+        length --;
+        current = current.next;
+    }
+    current.next = current.next.next;
+    return dummy.next;
+}
